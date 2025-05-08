@@ -84,6 +84,8 @@ state,info = env.reset() # Resets the environment to an initial state, required 
 n_observations = len(state) # Number of observations is the length of the state
 
 policy_net = DQN(n_observations, n_actions).to(device) # Create the policy network
+target_net = DQN(n_observations, n_actions).to(device) # Create the target network
+target_net.load_state_dict(policy_net.state_dict()) # Load the policy network weights into the target network
 
 optimizer = optim.AdamW(policy_net.parameters(), lr=LR) # Create the optimizer
 memory = ReplayMemory(10000) # Create the replay memory
@@ -101,4 +103,30 @@ def select_action(state):
     else:
         return torch.tensor([[env.action_space.sample()]], device=device, dtype=torch.long) # Return a random action sampled from the action space  
     
-    episode_durations = []
+episode_durations = []
+
+# For plot visualization
+def plot_durations(show_result=False):
+    plt.figure(1)
+    durations_t = torch.tensor(episode_durations, dtype=torch.float)
+    if show_result:
+        plt.title('Result')
+    else:
+        plt.clf()
+        plt.title('Training...')
+    plt.xlabel('Episode')
+    plt.ylabel('Duration')
+    plt.plot(durations_t.numpy())
+    # Take 100 episode averages and plot them too
+    if len(durations_t) >= 100:
+        means = durations_t.unfold(0, 100, 1).mean(1).view(-1)
+        means = torch.cat((torch.zeros(99), means))
+        plt.plot(means.numpy())
+
+    plt.pause(0.001)  # pause a bit so that plots are updated
+    if is_ipython:
+        if not show_result:
+            display.display(plt.gcf())
+            display.clear_output(wait=True)
+        else:
+            display.display(plt.gcf())
