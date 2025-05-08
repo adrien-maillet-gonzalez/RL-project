@@ -130,3 +130,10 @@ def plot_durations(show_result=False):
             display.clear_output(wait=True)
         else:
             display.display(plt.gcf())
+
+# Training loop
+def optimize_model():
+    if len(memory) < BATCH_SIZE: # Check if there are enough experiences in memory
+        return
+    transitions = memory.sample(BATCH_SIZE) # Sample a batch of experiences from memory
+    batch = Transition(*zip(*transitions)) # Unzip the batch into a list of transitions
