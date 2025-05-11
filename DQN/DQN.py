@@ -12,6 +12,9 @@ import torch.optim as optim
 import torch.nn.functional as F
 
 env = gym.make("CartPole-v1")
+# Seed the environment
+env_seed = 42  # Choose any integer value
+env.reset(seed=env_seed)
 
 # set up matplotlib
 is_ipython = 'inline' in matplotlib.get_backend()
@@ -49,21 +52,21 @@ class ReplayMemory(object):
     def __len__(self):
         return len(self.memory)
     
-    # Define the Deep Q-Network using PyTorch nn.Module
-    class DQN(nn.Module):
+# Define the Deep Q-Network using PyTorch nn.Module
+class DQN(nn.Module):
 
-        def __init__(self, n_observations, n_actions):
-            super(DQN, self).__init__()
-            self.layer1 = nn.Linear(n_observations, 128) # Input observations (4) to hidden layer (128)
-            self.layer2 = nn.Linear(128, 128) # Hidden layer (128) to hidden layer (128)
-            self.layer3 = nn.Linear(128, n_actions) # Output hidden layer (128) to output actions (2)
+    def __init__(self, n_observations, n_actions):
+        super(DQN, self).__init__()
+        self.layer1 = nn.Linear(n_observations, 128) # Input observations (4) to hidden layer (128)
+        self.layer2 = nn.Linear(128, 128) # Hidden layer (128) to hidden layer (128)
+        self.layer3 = nn.Linear(128, n_actions) # Output hidden layer (128) to output actions (2)
 
-    # Called with either one element to determine next action, or a batch
-    # during optimization. Returns tensor([[left0exp,right0exp]...]).
-        def forward(self, x):
-            x = F.relu(self.layer2(x))
-            x = F.relu(self.layer1(x))
-            return self.layer3(x)
+# Called with either one element to determine next action, or a batch
+# during optimization. Returns tensor([[left0exp,right0exp]...]).
+    def forward(self, x):
+        x = F.relu(self.layer1(x))
+        x = F.relu(self.layer2(x))
+        return self.layer3(x)
         
 
 # Training
@@ -185,7 +188,7 @@ def optimize_model():
 if torch.cuda.is_available() or torch.backends.mps.is_available():
     num_episodes = 600
 else:
-    num_episodes = 50
+    num_episodes = 600
 
 for i_episode in range(num_episodes):
     # Initialize the environment and get its state
