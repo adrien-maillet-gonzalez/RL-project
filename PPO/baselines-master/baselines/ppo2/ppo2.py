@@ -232,7 +232,7 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
             print('Saving to', savepath)
             model.save(savepath)
 
-    json_path = logger.save("/home/maillet/RL-project/PPO/baselines-master/output-json/")
+    json_path = logger.save("/home/maillet/RL-project/PPO/baselines-master/output-json/CartPole-v1_seed-0.json")
     return model
 # Avoid division error when calculate the mean (in our case if epinfo is empty returns np.nan, not return an error)
 def safemean(xs):
