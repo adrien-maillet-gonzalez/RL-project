@@ -1,8 +1,16 @@
 import os
+import sys
 import time
 import numpy as np
 import os.path as osp
-from baselines import logger
+#from baselines import logger
+
+sys.path.append("/home/maillet/RL-project")
+
+import Visualizer as rlvis
+
+logger = rlvis.RLLogger(policy="PPO", environment="CartPole-v1", seed=0)
+
 from collections import deque
 from baselines.common import explained_variance, set_global_seeds
 from baselines.common.policies import build_policy
@@ -136,14 +144,14 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
         # Calculate the cliprange
         cliprangenow = cliprange(frac)
 
-        if update % log_interval == 0 and is_mpi_root: logger.info('Stepping environment...')
+        #if update % log_interval == 0 and is_mpi_root: logger.info('Stepping environment...')
 
         # Get minibatch
         obs, returns, masks, actions, values, neglogpacs, states, epinfos = runner.run() #pylint: disable=E0632
         if eval_env is not None:
             eval_obs, eval_returns, eval_masks, eval_actions, eval_values, eval_neglogpacs, eval_states, eval_epinfos = eval_runner.run() #pylint: disable=E0632
 
-        if update % log_interval == 0 and is_mpi_root: logger.info('Done.')
+        #if update % log_interval == 0 and is_mpi_root: logger.info('Done.')
 
         epinfobuf.extend(epinfos)
         if eval_env is not None:
@@ -193,21 +201,29 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
             # Calculates if value function is a good predicator of the returns (ev > 1)
             # or if it's just worse than predicting nothing (ev =< 0)
             ev = explained_variance(values, returns)
-            logger.logkv("misc/serial_timesteps", update*nsteps)
-            logger.logkv("misc/nupdates", update)
-            logger.logkv("misc/total_timesteps", update*nbatch)
-            logger.logkv("fps", fps)
-            logger.logkv("misc/explained_variance", float(ev))
-            logger.logkv('eprewmean', safemean([epinfo['r'] for epinfo in epinfobuf]))
-            logger.logkv('eplenmean', safemean([epinfo['l'] for epinfo in epinfobuf]))
-            if eval_env is not None:
-                logger.logkv('eval_eprewmean', safemean([epinfo['r'] for epinfo in eval_epinfobuf]) )
-                logger.logkv('eval_eplenmean', safemean([epinfo['l'] for epinfo in eval_epinfobuf]) )
-            logger.logkv('misc/time_elapsed', tnow - tfirststart)
-            for (lossval, lossname) in zip(lossvals, model.loss_names):
-                logger.logkv('loss/' + lossname, lossval)
+            #logger.logkv("misc/serial_timesteps", update*nsteps)
+            #logger.logkv("misc/nupdates", update)
+            #logger.logkv("misc/total_timesteps", update*nbatch)
+            #logger.logkv("fps", fps)
+            #logger.logkv("misc/explained_variance", float(ev))
+            #logger.logkv('eprewmean', safemean([epinfo['r'] for epinfo in epinfobuf]))
 
-            logger.dumpkvs()
+            logger.log_evaluation(at_timesteps=update*nbatch, eval_episodes=10, avg_reward=safemean([epinfo['r'] for epinfo in epinfobuf]))
+            print("Evaluation for ", update, " episodes")
+            for epinfo in epinfobuf:
+
+                logger.log_episode(total_timesteps=200, episode_num=1, episode_timesteps=200, reward=epinfo['r'])
+                #print('eprew', epinfo['r'])
+		#logger.logkv('eplenmean', safemean([epinfo['l'] for epinfo in epinfobuf]))
+            #if eval_env is not None:
+               # logger.logkv('eval_eprewmean', safemean([epinfo['r'] for epinfo in eval_epinfobuf]) )
+                #logger.logkv('eval_eplenmean', safemean([epinfo['l'] for epinfo in eval_epinfobuf]) )
+            #logger.logkv('misc/time_elapsed', tnow - tfirststart)
+            #for (lossval, lossname) in zip(lossvals, model.loss_names):
+                #logger.logkv('loss/' + lossname, lossval)
+
+            #logger.dumpkvs()
+
         if save_interval and (update % save_interval == 0 or update == 1) and logger.get_dir() and is_mpi_root:
             checkdir = osp.join(logger.get_dir(), 'checkpoints')
             os.makedirs(checkdir, exist_ok=True)
@@ -215,6 +231,7 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
             print('Saving to', savepath)
             model.save(savepath)
 
+    json_path = logger.save()
     return model
 # Avoid division error when calculate the mean (in our case if epinfo is empty returns np.nan, not return an error)
 def safemean(xs):

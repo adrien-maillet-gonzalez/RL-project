@@ -11,8 +11,16 @@ from baselines.common.vec_env import VecFrameStack, VecNormalize, VecEnv
 from baselines.common.vec_env.vec_video_recorder import VecVideoRecorder
 from baselines.common.cmd_util import common_arg_parser, parse_unknown_args, make_vec_env, make_env
 from baselines.common.tf_util import get_session
-from baselines import logger
+#from baselines import logger
 from importlib import import_module
+
+"""
+sys.path.append("/home/maillet/RL-project")
+
+import Visualizer as rlvis
+
+logger = rlvis.RLLogger(policy="PPO", environment="CartPole-v1", seed=0)
+"""
 
 try:
     from mpi4py import MPI
@@ -191,13 +199,13 @@ def parse_cmdline_kwargs(args):
 
     return {k: parse(v) for k,v in parse_unknown_args(args).items()}
 
-
+"""
 def configure_logger(log_path, **kwargs):
     if log_path is not None:
         logger.configure(log_path)
     else:
         logger.configure(**kwargs)
-
+"""
 
 def main(args):
     # configure logger, disable logging in child MPI processes (with rank > 0)
@@ -206,12 +214,14 @@ def main(args):
     args, unknown_args = arg_parser.parse_known_args(args)
     extra_args = parse_cmdline_kwargs(unknown_args)
 
+    """
     if MPI is None or MPI.COMM_WORLD.Get_rank() == 0:
         rank = 0
         configure_logger(args.log_path)
     else:
         rank = MPI.COMM_WORLD.Get_rank()
         configure_logger(args.log_path, format_strs=[])
+    """
 
     model, env = train(args, extra_args)
 
@@ -220,7 +230,7 @@ def main(args):
         model.save(save_path)
 
     if args.play:
-        logger.log("Running trained model")
+        #logger.log("Running trained model")
         obs = env.reset()
 
         state = model.initial_state if hasattr(model, 'initial_state') else None
