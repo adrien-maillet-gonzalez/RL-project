@@ -208,11 +208,12 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
             #logger.logkv("misc/explained_variance", float(ev))
             #logger.logkv('eprewmean', safemean([epinfo['r'] for epinfo in epinfobuf]))
 
-            logger.log_evaluation(at_timesteps=update*nbatch, eval_episodes=10, avg_reward=safemean([epinfo['r'] for epinfo in epinfobuf]))
+            logger.log_evaluation(at_timesteps=update, eval_episodes=10, avg_reward=safemean([epinfo['r'] for epinfo in epinfobuf]))
             print("Evaluation for ", update, " episodes")
+            episode_idx = update
             for epinfo in epinfobuf:
-
-                logger.log_episode(total_timesteps=200, episode_num=1, episode_timesteps=200, reward=epinfo['r'])
+                episode_idx += 1
+                logger.log_episode(total_timesteps=episode_idx, episode_num=update/10, episode_timesteps=10, reward=epinfo['r'])
                 #print('eprew', epinfo['r'])
 		#logger.logkv('eplenmean', safemean([epinfo['l'] for epinfo in epinfobuf]))
             #if eval_env is not None:
@@ -231,7 +232,7 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
             print('Saving to', savepath)
             model.save(savepath)
 
-    json_path = logger.save()
+    json_path = logger.save("/home/maillet/RL-project/PPO/baselines-master/output-json/")
     return model
 # Avoid division error when calculate the mean (in our case if epinfo is empty returns np.nan, not return an error)
 def safemean(xs):
