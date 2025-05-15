@@ -84,7 +84,7 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
     '''
 
     set_global_seeds(seed)
-    logger = rlvis.RLLogger(policy="PPO", environment="CartPole-v1", seed=seed)
+    logger = rlvis.RLLogger(policy="PPO", environment=eval_env, seed=seed) # This is the logger from Momo to get a proper .json file for plots
     if isinstance(lr, float): lr = constfn(lr)
     else: assert callable(lr)
     if isinstance(cliprange, float): cliprange = constfn(cliprange)
@@ -230,7 +230,7 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
             print('Saving to', savepath)
             model.save(savepath)
 
-    filename = f"/home/maillet/RL-project/PPO/baselines-master/output-json/CartPole-v1_seed-{seed}.json"
+    filename = f"/home/maillet/RL-project/PPO/baselines-master/output-json/{eval_env}_seed-{seed}.json"
     json_path = logger.save(filename)
     return model
 # Avoid division error when calculate the mean (in our case if epinfo is empty returns np.nan, not return an error)
