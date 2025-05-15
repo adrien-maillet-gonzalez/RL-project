@@ -193,14 +193,21 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
         fps = int(nbatch / (tnow - tstart))
 
 
+        for i, epinfo in enumerate(epinfos):
+            logger.log_episode(total_timesteps=update * nbatch,
+            episode_num=(update - 1) * (nbatch // nsteps) + i + 1,
+            episode_timesteps=epinfo.get('l', nsteps),
+            reward=epinfo['r'])
+
+        """
         # Log each episode returned in this update
         logger.log_episode(
                 total_timesteps=update * nbatch,
                 episode_num=update,
-                episode_timesteps=epinfos['l'],
+                episode_timesteps=int(epinfos['l']),
                 reward=epinfos['r']
             )
-
+        """
 
 
         if update_fn is not None:
@@ -215,8 +222,8 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
             savepath = osp.join(checkdir, '%.5i'%update)
             print('Saving to', savepath)
             model.save(savepath)
-
-    filename = f"/home/maillet/RL-project/PPO/baselines-master/output-json/{eval_env}_seed-{seed}.json"
+    env_name = "CartPole-v1"
+    filename = f"/home/maillet/RL-project/PPO/baselines-master/output-json/{env_name}_seed-{seed}.json"
     json_path = logger.save(filename)
     return model
 # Avoid division error when calculate the mean (in our case if epinfo is empty returns np.nan, not return an error)
