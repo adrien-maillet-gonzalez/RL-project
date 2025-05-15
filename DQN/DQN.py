@@ -11,7 +11,7 @@ import torch.nn as nn
 import torch.optim as optim
 import torch.nn.functional as F
 
-env = gym.make("CartPole-v1")
+env = gym.make("CartPole-v1", render_mode="human") # Create the CartPole environment
 # Seed the environment
 env_seed = 42  # Choose any integer value
 env.reset(seed=env_seed)
@@ -85,6 +85,7 @@ n_actions = env.action_space.n
 # Get the number of state observations from the gym observation space
 state,info = env.reset() # Resets the environment to an initial state, required before calling step. Returns the first agent observation for an episode and information.
 n_observations = len(state) # Number of observations is the length of the state
+
 
 policy_net = DQN(n_observations, n_actions).to(device) # Create the policy network
 target_net = DQN(n_observations, n_actions).to(device) # Create the target network
