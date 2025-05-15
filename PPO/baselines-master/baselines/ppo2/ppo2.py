@@ -5,7 +5,7 @@ import numpy as np
 import os.path as osp
 #from baselines import logger
 
-sys.path.append("/home/maillet/RL-project")
+sys.path.append(r"C:\Users\franc\Documents\Cours\EPFL\M2\Reinforcement Learning\Final_project\RL-project")
 
 import Visualizer as rlvis
 
@@ -230,7 +230,7 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
             print('Saving to', savepath)
             model.save(savepath)
 
-    filename = f"/home/maillet/RL-project/PPO/baselines-master/output-json/{eval_env}_seed-{seed}.json"
+    filename = f"Users/franc/Documents/Cours/EPFL/M2/Reinforcement Learning/Final_project/RL-project/PPO/baselines-master/output-json/{eval_env}_seed-{seed}.json"
     json_path = logger.save(filename)
     return model
 # Avoid division error when calculate the mean (in our case if epinfo is empty returns np.nan, not return an error)
