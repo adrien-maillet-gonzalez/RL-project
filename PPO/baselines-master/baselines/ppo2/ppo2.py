@@ -192,36 +192,22 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
         # Calculate the fps (frame per second)
         fps = int(nbatch / (tnow - tstart))
 
+
+        # Log each episode returned in this update
+        logger.log_episode(
+                total_timesteps=update * nbatch,
+                episode_num=update,
+                episode_timesteps=epinfos['l'],
+                reward=epinfos['r']
+            )
+
+
+
         if update_fn is not None:
             update_fn(update)
 
         if update % log_interval == 0 or update == 1:
-            # Calculates if value function is a good predicator of the returns (ev > 1)
-            # or if it's just worse than predicting nothing (ev =< 0)
-            ev = explained_variance(values, returns)
-            #logger.logkv("misc/serial_timesteps", update*nsteps)
-            #logger.logkv("misc/nupdates", update)
-            #logger.logkv("misc/total_timesteps", update*nbatch)
-            #logger.logkv("fps", fps)
-            #logger.logkv("misc/explained_variance", float(ev))
-            #logger.logkv('eprewmean', safemean([epinfo['r'] for epinfo in epinfobuf]))
-
-            logger.log_evaluation(at_timesteps=update, eval_episodes=10, avg_reward=safemean([epinfo['r'] for epinfo in epinfobuf]))
             print("Evaluation for ", update, " episodes")
-            episode_idx = update
-            for epinfo in epinfobuf:
-                episode_idx += 1
-                logger.log_episode(total_timesteps=episode_idx, episode_num=update/10, episode_timesteps=10, reward=epinfo['r'])
-                #print('eprew', epinfo['r'])
-		#logger.logkv('eplenmean', safemean([epinfo['l'] for epinfo in epinfobuf]))
-            #if eval_env is not None:
-               # logger.logkv('eval_eprewmean', safemean([epinfo['r'] for epinfo in eval_epinfobuf]) )
-                #logger.logkv('eval_eplenmean', safemean([epinfo['l'] for epinfo in eval_epinfobuf]) )
-            #logger.logkv('misc/time_elapsed', tnow - tfirststart)
-            #for (lossval, lossname) in zip(lossvals, model.loss_names):
-                #logger.logkv('loss/' + lossname, lossval)
-
-            #logger.dumpkvs()
 
         if save_interval and (update % save_interval == 0 or update == 1) and logger.get_dir() and is_mpi_root:
             checkdir = osp.join(logger.get_dir(), 'checkpoints')
@@ -239,3 +225,33 @@ def safemean(xs):
 
 
 
+"""
+
+            # Calculates if value function is a good predicator of the returns (ev > 1)
+            # or if it's just worse than predicting nothing (ev =< 0)
+            ev = explained_variance(values, returns)
+            #logger.logkv("misc/serial_timesteps", update*nsteps)
+            #logger.logkv("misc/nupdates", update)
+            #logger.logkv("misc/total_timesteps", update*nbatch)
+            #logger.logkv("fps", fps)
+            #logger.logkv("misc/explained_variance", float(ev))
+            #logger.logkv('eprewmean', safemean([epinfo['r'] for epinfo in epinfobuf]))
+
+            logger.log_evaluation(at_timesteps=update, eval_episodes=10, avg_reward=safemean([epinfo['r'] for epinfo in epinfobuf]))
+            
+            episode_idx = update
+            for epinfo in epinfobuf:
+                episode_idx += 1
+                logger.log_episode(total_timesteps=episode_idx, episode_num=update/10, episode_timesteps=10, reward=epinfo['r'])
+                #print('eprew', epinfo['r'])
+		#logger.logkv('eplenmean', safemean([epinfo['l'] for epinfo in epinfobuf]))
+            #if eval_env is not None:
+               # logger.logkv('eval_eprewmean', safemean([epinfo['r'] for epinfo in eval_epinfobuf]) )
+                #logger.logkv('eval_eplenmean', safemean([epinfo['l'] for epinfo in eval_epinfobuf]) )
+            #logger.logkv('misc/time_elapsed', tnow - tfirststart)
+            #for (lossval, lossname) in zip(lossvals, model.loss_names):
+                #logger.logkv('loss/' + lossname, lossval)
+
+            #logger.dumpkvs()
+            # 
+"""
