@@ -1,14 +1,13 @@
 #!/bin/bash
 #SBATCH --job-name=rl_training_PPO_MountainCar-v0
-
-SEED=3
-
-#SBATCH --output=PPO_MountainCar-v0_seed-${SEED}_%j.out
-#SBATCH --error=PPO_MountainCar-v0_seed-${SEED}_%j.err
+#SBATCH --output=PPO_MountainCar-v0_%j.out
+#SBATCH --error=PPO_MountainCar_%j.err
 #SBATCH --time=02:00:00
 #SBATCH --mem=4G
 #SBATCH --cpus-per-task=4
 #SBATCH --gres=gpu:1
+
+SEED=$1
 
 cd /home/maillet/RL-project/PPO/baselines-master
 
