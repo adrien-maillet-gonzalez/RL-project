@@ -222,7 +222,7 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
             savepath = osp.join(checkdir, '%.5i'%update)
             print('Saving to', savepath)
             model.save(savepath)
-    env_name = "CartPole-v1"
+    env_name = "MountainCar-v0"
     filename = f"/home/maillet/RL-project/PPO/baselines-master/output-json/{env_name}_seed-{seed}.json"
     json_path = logger.save(filename)
     return model

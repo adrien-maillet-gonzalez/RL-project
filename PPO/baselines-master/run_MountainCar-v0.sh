@@ -7,7 +7,8 @@
 #SBATCH --cpus-per-task=4
 #SBATCH --gres=gpu:1
 
-SEED=$1
+# Read seed from command line, default to 0 if not provided
+SEED=${1:-0}
 
 cd /home/maillet/RL-project/PPO/baselines-master
 
