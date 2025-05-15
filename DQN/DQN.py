@@ -5,19 +5,36 @@ import matplotlib
 import matplotlib.pyplot as plt
 from collections import namedtuple, deque
 from itertools import count
+import os
+import sys
 
-import torch
-import torch.nn as nn
-import torch.optim as optim
-import torch.nn.functional as F
+# Add the parent directory to the path to import Visualizer
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(current_dir)
+sys.path.append(parent_dir)
 
-env = gym.make("CartPole-v1", render_mode="human") # Create the CartPole environment
-# Seed the environment
-env_seed = 42  # Choose any integer value
-env.reset(seed=env_seed)
+import torch  # noqa: E402
+import torch.nn as nn  # noqa: E402
+import torch.optim as optim  # noqa: E402
+import torch.nn.functional as F  # noqa: E402
+
+# Import the RLLogger from Visualizer
+from Visualizer.logger import RLLogger  # noqa: E402
+
+seed = 42
+ENV_NAME = "CartPole-v1"
+LOG_DIR = os.path.join(current_dir, "logs")
+POLICY_NAME = "DQN"
+MODEL_DIR = os.path.join(current_dir, "models")
+RENDER_MODE = True
+
+if RENDER_MODE:
+    env = gym.make(ENV_NAME, render_mode="human")
+else:
+    env = gym.make(ENV_NAME)
 
 # set up matplotlib
-is_ipython = 'inline' in matplotlib.get_backend()
+is_ipython = "inline" in matplotlib.get_backend()
 if is_ipython:
     from IPython import display
 
@@ -25,20 +42,22 @@ plt.ion()
 
 # if GPU is to be used
 device = torch.device(
-    "cuda" if torch.cuda.is_available() else
-    "mps" if torch.backends.mps.is_available() else
-    "cpu"
+    "cuda"
+    if torch.cuda.is_available()
+    else "mps"
+    if torch.backends.mps.is_available()
+    else "cpu"
 )
 
-# Define the transition tuple 
 
-Transition = namedtuple('Transition',
-                        ('state', 'action', 'next_state', 'reward'))
+######################################################################
+# Replay Memory
+# -------------------
 
-# Define the structure of the replay memory
+Transition = namedtuple("Transition", ("state", "action", "next_state", "reward"))
+
 
 class ReplayMemory(object):
-
     def __init__(self, capacity):
         self.memory = deque([], maxlen=capacity)
 
@@ -51,82 +70,97 @@ class ReplayMemory(object):
 
     def __len__(self):
         return len(self.memory)
-    
-# Define the Deep Q-Network using PyTorch nn.Module
-class DQN(nn.Module):
 
+
+######################################################################
+# DQN algorithm
+# -------------
+
+
+class DQN(nn.Module):
     def __init__(self, n_observations, n_actions):
         super(DQN, self).__init__()
-        self.layer1 = nn.Linear(n_observations, 128) # Input observations (4) to hidden layer (128)
-        self.layer2 = nn.Linear(128, 128) # Hidden layer (128) to hidden layer (128)
-        self.layer3 = nn.Linear(128, n_actions) # Output hidden layer (128) to output actions (2)
+        self.layer1 = nn.Linear(n_observations, 128)
+        self.layer2 = nn.Linear(128, 128)
+        self.layer3 = nn.Linear(128, n_actions)
 
-# Called with either one element to determine next action, or a batch
-# during optimization. Returns tensor([[left0exp,right0exp]...]).
+    # Called with either one element to determine next action, or a batch
+    # during optimization. Returns tensor([[left0exp,right0exp]...]).
     def forward(self, x):
         x = F.relu(self.layer1(x))
         x = F.relu(self.layer2(x))
         return self.layer3(x)
-        
 
+
+######################################################################
 # Training
-# Hyperparameters
+# --------
 
-BATCH_SIZE = 128 # BATCH_SIZE is the number of transitions sampled from the replay buffer
-GAMMA = 0.99 # GAMMA is the discount factor as mentioned in the previous section
-EPS_START = 0.9 # EPS_START is the starting value of epsilon
-EPS_END = 0.05 # EPS_END is the final value of epsilon
-EPS_DECAY = 1000 # EPS_DECAY controls the rate of exponential decay of epsilon, higher means a slower decay
-TAU = 0.005 # TAU is the update rate of the target network
-LR = 1e-4 # LR is the learning rate of the ``AdamW`` optimizer
+BATCH_SIZE = 128
+GAMMA = 0.99
+EPS_START = 0.9
+EPS_END = 0.05
+EPS_DECAY = 1000
+TAU = 0.005
+LR = 1e-4
 
-# Get the number of actions from the gym action space
+# Get number of actions from gym action space
 n_actions = env.action_space.n
-# Get the number of state observations from the gym observation space
-state,info = env.reset() # Resets the environment to an initial state, required before calling step. Returns the first agent observation for an episode and information.
-n_observations = len(state) # Number of observations is the length of the state
+# Get the number of state observations
+state, info = env.reset()
+n_observations = len(state)
 
+policy_net = DQN(n_observations, n_actions).to(device)
+target_net = DQN(n_observations, n_actions).to(device)
 
-policy_net = DQN(n_observations, n_actions).to(device) # Create the policy network
-target_net = DQN(n_observations, n_actions).to(device) # Create the target network
-# Load saved weights if they exist
 try:
-    policy_net.load_state_dict(torch.load('dqn_cartpole.pth'))
-    target_net.load_state_dict(policy_net.state_dict())  # Sync target network
-    print("Loaded pretrained weights!")
+    policy_net.load_state_dict(torch.load(os.path.join(MODEL_DIR, "dqn_cartpole.pth")))
+    target_net.load_state_dict(policy_net.state_dict())
+    print("Model loaded successfully")
 except FileNotFoundError:
-    print("No saved weights found. Training from scratch.")
-    target_net.load_state_dict(policy_net.state_dict())  # Default sync
+    print("No model found, training from scratch")
+    target_net.load_state_dict(policy_net.state_dict())
 
-optimizer = optim.AdamW(policy_net.parameters(), lr=LR) # Create the optimizer
-memory = ReplayMemory(10000) # Create the replay memory
 
-steps_done = 0 # Used to track the steps done during training (decay epsilon to transition from exploration to exploitation)
+optimizer = optim.AdamW(policy_net.parameters(), lr=LR, amsgrad=True)
+memory = ReplayMemory(10000)
+
+
+steps_done = 0
+
 
 def select_action(state):
     global steps_done
-    sample = random.random() # Sample a random number between 0 and 1
-    eps_threshold = EPS_END + (EPS_START - EPS_END) * math.exp(-1. * steps_done / EPS_DECAY) # Calculate the epsilon threshold
-    steps_done += 1 # Increment the steps done
-    if sample > eps_threshold: # The odds that the sample is greater than the epsilon is increasingly likely as training progresses
-        with torch.no_grad(): # No need to track gradients for this operation, would slow down training
-            return policy_net(state).max(1).indices.view(1,1) # Return the action with the highest Q-value
+    sample = random.random()
+    eps_threshold = EPS_END + (EPS_START - EPS_END) * math.exp(
+        -1.0 * steps_done / EPS_DECAY
+    )
+    steps_done += 1
+    if sample > eps_threshold:
+        with torch.no_grad():
+            # t.max(1) will return the largest column value of each row.
+            # second column on max result is index of where max element was
+            # found, so we pick action with the larger expected reward.
+            return policy_net(state).max(1).indices.view(1, 1)
     else:
-        return torch.tensor([[env.action_space.sample()]], device=device, dtype=torch.long) # Return a random action sampled from the action space  
-    
+        return torch.tensor(
+            [[env.action_space.sample()]], device=device, dtype=torch.long
+        )
+
+
 episode_durations = []
 
-# For plot visualization
+
 def plot_durations(show_result=False):
     plt.figure(1)
     durations_t = torch.tensor(episode_durations, dtype=torch.float)
     if show_result:
-        plt.title('Result')
+        plt.title("Result")
     else:
         plt.clf()
-        plt.title('Training...')
-    plt.xlabel('Episode')
-    plt.ylabel('Duration')
+        plt.title("Training...")
+    plt.xlabel("Episode")
+    plt.ylabel("Duration")
     plt.plot(durations_t.numpy())
     # Take 100 episode averages and plot them too
     if len(durations_t) >= 100:
@@ -142,34 +176,46 @@ def plot_durations(show_result=False):
         else:
             display.display(plt.gcf())
 
+
+######################################################################
 # Training loop
+# -------------
 def optimize_model():
-    if len(memory) < BATCH_SIZE: # Check if there are enough experiences in memory
+    if len(memory) < BATCH_SIZE:
         return
-    transitions = memory.sample(BATCH_SIZE) # Sample a batch of experiences from memory
-    batch = Transition(*zip(*transitions)) # Unzip the batch into a list of transitions
+    transitions = memory.sample(BATCH_SIZE)
+    # Transpose the batch (see https://stackoverflow.com/a/19343/3343043 for
+    # detailed explanation). This converts batch-array of Transitions
+    # to Transition of batch-arrays.
+    batch = Transition(*zip(*transitions))
 
-    # Compute a mask to check if the next state is a final state
-    non_final_mask = torch.tensor(tuple(map(lambda s: s is not None, batch.next_state)), 
-                            device=device, dtype=torch.bool)
+    # Compute a mask of non-final states and concatenate the batch elements
+    # (a final state would've been the one after which simulation ended)
+    non_final_mask = torch.tensor(
+        tuple(map(lambda s: s is not None, batch.next_state)),
+        device=device,
+        dtype=torch.bool,
+    )
     non_final_next_states = torch.cat([s for s in batch.next_state if s is not None])
-
     state_batch = torch.cat(batch.state)
     action_batch = torch.cat(batch.action)
     reward_batch = torch.cat(batch.reward)
 
-    state_action_values = policy_net(state_batch).gather(1, action_batch) # Get the Q-values for the actions actually taken
+    # Compute Q(s_t, a) - the model computes Q(s_t), then we select the
+    # columns of actions taken. These are the actions which would've been taken
+    # for each batch state according to policy_net
+    state_action_values = policy_net(state_batch).gather(1, action_batch)
 
     # Compute V(s_{t+1}) for all next states.
     # Expected values of actions for non_final_next_states are computed based
     # on the "older" target_net; selecting their best reward with max(1).values
     # This is merged based on the mask, such that we'll have either the expected
-    # state value or 0 in case the state was final. This is the addition of the 2015
-    # paper, "Human-level control through deep reinforcement learning" by Mnih et al.
-    # https://arxiv.org/abs/1509.06461
+    # state value or 0 in case the state was final.
     next_state_values = torch.zeros(BATCH_SIZE, device=device)
     with torch.no_grad():
-        next_state_values[non_final_mask] = target_net(non_final_next_states).max(1).values
+        next_state_values[non_final_mask] = (
+            target_net(non_final_next_states).max(1).values
+        )
     # Compute the expected Q values
     expected_state_action_values = (next_state_values * GAMMA) + reward_batch
 
@@ -184,27 +230,57 @@ def optimize_model():
     torch.nn.utils.clip_grad_value_(policy_net.parameters(), 100)
     optimizer.step()
 
+    return loss.item()
 
+
+######################################################################
 # Main training loop
-if torch.cuda.is_available() or torch.backends.mps.is_available():
-    num_episodes = 600
-else:
-    num_episodes = 600
+# -------------------
 
+if torch.cuda.is_available() or torch.backends.mps.is_available():
+    num_episodes = 300
+else:
+    num_episodes = 50
+
+# Create output directory for logs
+
+os.makedirs(LOG_DIR, exist_ok=True)
+# Initialize logger
+logger = RLLogger(
+    policy=POLICY_NAME, environment=ENV_NAME, seed=seed, output_dir=LOG_DIR
+)
+
+# Set random seeds for reproducibility
+random.seed(seed)
+torch.manual_seed(seed)
+env.reset(seed=seed)
+
+total_timesteps = 0
 for i_episode in range(num_episodes):
     # Initialize the environment and get its state
     state, info = env.reset()
     state = torch.tensor(state, dtype=torch.float32, device=device).unsqueeze(0)
+
+    episode_reward = 0
+    episode_loss = 0
+    episode_timesteps = 0
+
     for t in count():
         action = select_action(state)
         observation, reward, terminated, truncated, _ = env.step(action.item())
         reward = torch.tensor([reward], device=device)
         done = terminated or truncated
 
+        episode_reward += reward.item()
+        episode_timesteps += 1
+        total_timesteps += 1
+
         if terminated:
             next_state = None
         else:
-            next_state = torch.tensor(observation, dtype=torch.float32, device=device).unsqueeze(0)
+            next_state = torch.tensor(
+                observation, dtype=torch.float32, device=device
+            ).unsqueeze(0)
 
         # Store the transition in memory
         memory.push(state, action, next_state, reward)
@@ -212,27 +288,49 @@ for i_episode in range(num_episodes):
         # Move to the next state
         state = next_state
 
-        # Perform one step of the optimization
-        optimize_model()
+        # Perform one step of the optimization (on the policy network)
+        loss = optimize_model()
+        if loss is not None:
+            episode_loss += loss
 
         # Soft update of the target network's weights
         # θ′ ← τ θ + (1 −τ )θ′
         target_net_state_dict = target_net.state_dict()
         policy_net_state_dict = policy_net.state_dict()
         for key in policy_net_state_dict:
-            target_net_state_dict[key] = policy_net_state_dict[key]*TAU + target_net_state_dict[key]*(1-TAU)
+            target_net_state_dict[key] = policy_net_state_dict[
+                key
+            ] * TAU + target_net_state_dict[key] * (1 - TAU)
         target_net.load_state_dict(target_net_state_dict)
 
         if done:
             episode_durations.append(t + 1)
             plot_durations()
+
+            # Log episode data
+            logger.log_episode(
+                total_timesteps=total_timesteps,
+                episode_num=i_episode,
+                episode_timesteps=episode_timesteps,
+                reward=episode_reward,
+            )
+
+            # Save log file every 25 episodes and at the end of training
+            if i_episode % 25 == 0 or i_episode == num_episodes - 1:
+                log_path = logger.save()
+                print(f"Saved log to {log_path}")
+
             break
 
-print('Complete')
-# Save the policy network's state dictionary
-torch.save(policy_net.state_dict(), 'dqn_cartpole.pth')
+print("Complete")
+plot_durations(show_result=True)
+
+# Save the final log file
+final_log_path = logger.save()
+print(f"Training complete! Final log saved to: {final_log_path}")
+
+torch.save(policy_net.state_dict(), os.path.join(MODEL_DIR, "dqn_cartpole.pth"))
 print("Saved policy_net weights to 'dqn_cartpole.pth'")
 
-plot_durations(show_result=True)
 plt.ioff()
 plt.show()
