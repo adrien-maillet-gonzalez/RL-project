@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=rl_training
-#SBATCH --output=PPO_MountainCar-v0_seed-1_%j.out
-#SBATCH --error=PPO_MountainCar-v0_seed-1_%j.err
+#SBATCH --output=PPO_MountainCar-v1_seed-0_%j.out
+#SBATCH --error=PPO_MountainCar-v1_seed-0_%j.err
 #SBATCH --time=02:00:00                             # Adjust time as needed
 #SBATCH --mem=4G                                    # Adjust memory as needed
 #SBATCH --cpus-per-task=4                           # Adjust cores as needed

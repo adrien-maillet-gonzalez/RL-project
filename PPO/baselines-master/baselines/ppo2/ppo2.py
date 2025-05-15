@@ -9,8 +9,6 @@ sys.path.append("/home/maillet/RL-project")
 
 import Visualizer as rlvis
 
-logger = rlvis.RLLogger(policy="PPO", environment="CartPole-v1", seed=0)
-
 from collections import deque
 from baselines.common import explained_variance, set_global_seeds
 from baselines.common.policies import build_policy
@@ -86,7 +84,7 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
     '''
 
     set_global_seeds(seed)
-
+    logger = rlvis.RLLogger(policy="PPO", environment="CartPole-v1", seed=seed)
     if isinstance(lr, float): lr = constfn(lr)
     else: assert callable(lr)
     if isinstance(cliprange, float): cliprange = constfn(cliprange)
@@ -232,7 +230,8 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
             print('Saving to', savepath)
             model.save(savepath)
 
-    json_path = logger.save("/home/maillet/RL-project/PPO/baselines-master/output-json/CartPole-v1_seed-0.json")
+    filename = f"/home/maillet/RL-project/PPO/baselines-master/output-json/CartPole-v1_seed-{seed}.json"
+    json_path = logger.save(filename)
     return model
 # Avoid division error when calculate the mean (in our case if epinfo is empty returns np.nan, not return an error)
 def safemean(xs):
