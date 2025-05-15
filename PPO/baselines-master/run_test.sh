@@ -1,0 +1,17 @@
+#!/bin/bash
+#SBATCH --job-name=rl_training
+#SBATCH --time=02:00:00
+#SBATCH --mem=4G
+#SBATCH --cpus-per-task=4
+#SBATCH --gres=gpu:1
+
+SEED=$1
+
+#SBATCH --output=PPO_MountainCar-v0_seed-%A.out
+#SBATCH --error=PPO_MountainCar-v0_seed-%A.err
+
+cd /home/maillet/RL-project/PPO/baselines-master
+
+python -m baselines.run --alg=ppo2 --env=MountainCar-v0 --num_timesteps=5e6 \
+  --ent_coef=0.02 --lr=1e-4 --gamma=0.98 --nsteps=1024 \
+  --nminibatches=8 --vf_coef=0.7 --seed=${SEED}
