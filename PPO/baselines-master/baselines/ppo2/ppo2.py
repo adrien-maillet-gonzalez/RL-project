@@ -216,6 +216,12 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
         if update % log_interval == 0 or update == 1:
             print("Evaluation for ", update, " episodes")
 
+            for i, epinfo in enumerate(epinfos):
+                print("episode num = ", (update - 1) * (nbatch // nsteps) + i + 1)
+                print("reward = ", epinfo['r'])
+                print("episode_timesteps = ", epinfo.get('l', nsteps))
+
+
         if save_interval and (update % save_interval == 0 or update == 1) and logger.get_dir() and is_mpi_root:
             checkdir = osp.join(logger.get_dir(), 'checkpoints')
             os.makedirs(checkdir, exist_ok=True)
