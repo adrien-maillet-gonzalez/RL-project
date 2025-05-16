@@ -5,7 +5,7 @@ import numpy as np
 import os.path as osp
 #from baselines import logger
 
-sys.path.append(r"C:\Users\franc\Documents\Cours\EPFL\M2\Reinforcement Learning\Final_project\RL-project")
+sys.path.append("/home/maillet/RL-project")
 
 import Visualizer as rlvis
 
@@ -192,10 +192,48 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
         # Calculate the fps (frame per second)
         fps = int(nbatch / (tnow - tstart))
 
+
+        for i, epinfo in enumerate(epinfos):
+            logger.log_episode(total_timesteps=update * nbatch,
+            episode_num=(update - 1) * (nbatch // nsteps) + i + 1,
+            episode_timesteps=epinfo.get('l', nsteps),
+            reward=epinfo['r'])
+
+        """
+        # Log each episode returned in this update
+        logger.log_episode(
+                total_timesteps=update * nbatch,
+                episode_num=update,
+                episode_timesteps=int(epinfos['l']),
+                reward=epinfos['r']
+            )
+        """
+
+
         if update_fn is not None:
             update_fn(update)
 
         if update % log_interval == 0 or update == 1:
+            print("Evaluation for ", update, " episodes")
+
+        if save_interval and (update % save_interval == 0 or update == 1) and logger.get_dir() and is_mpi_root:
+            checkdir = osp.join(logger.get_dir(), 'checkpoints')
+            os.makedirs(checkdir, exist_ok=True)
+            savepath = osp.join(checkdir, '%.5i'%update)
+            print('Saving to', savepath)
+            model.save(savepath)
+    env_name = "MountainCar-v0"
+    filename = f"/home/maillet/RL-project/PPO/baselines-master/output-json/{env_name}_seed-{seed}.json"
+    json_path = logger.save(filename)
+    return model
+# Avoid division error when calculate the mean (in our case if epinfo is empty returns np.nan, not return an error)
+def safemean(xs):
+    return np.nan if len(xs) == 0 else np.mean(xs)
+
+
+
+"""
+
             # Calculates if value function is a good predicator of the returns (ev > 1)
             # or if it's just worse than predicting nothing (ev =< 0)
             ev = explained_variance(values, returns)
@@ -207,7 +245,7 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
             #logger.logkv('eprewmean', safemean([epinfo['r'] for epinfo in epinfobuf]))
 
             logger.log_evaluation(at_timesteps=update, eval_episodes=10, avg_reward=safemean([epinfo['r'] for epinfo in epinfobuf]))
-            print("Evaluation for ", update, " episodes")
+            
             episode_idx = update
             for epinfo in epinfobuf:
                 episode_idx += 1
@@ -222,20 +260,5 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
                 #logger.logkv('loss/' + lossname, lossval)
 
             #logger.dumpkvs()
-
-        if save_interval and (update % save_interval == 0 or update == 1) and logger.get_dir() and is_mpi_root:
-            checkdir = osp.join(logger.get_dir(), 'checkpoints')
-            os.makedirs(checkdir, exist_ok=True)
-            savepath = osp.join(checkdir, '%.5i'%update)
-            print('Saving to', savepath)
-            model.save(savepath)
-
-    filename = f"Users/franc/Documents/Cours/EPFL/M2/Reinforcement Learning/Final_project/RL-project/PPO/baselines-master/output-json/{eval_env}_seed-{seed}.json"
-    json_path = logger.save(filename)
-    return model
-# Avoid division error when calculate the mean (in our case if epinfo is empty returns np.nan, not return an error)
-def safemean(xs):
-    return np.nan if len(xs) == 0 else np.mean(xs)
-
-
-
+            # 
+"""
