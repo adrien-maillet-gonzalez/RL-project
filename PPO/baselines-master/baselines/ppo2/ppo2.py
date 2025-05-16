@@ -5,8 +5,8 @@ import numpy as np
 import os.path as osp
 #from baselines import logger
 
-sys.path.append("/home/maillet/RL-project")
-
+# sys.path.append("/home/maillet/RL-project")
+sys.path.append(r"C:\Users\franc\Documents\Cours\EPFL\M2\Reinforcement Learning\Final_project\RL-project")
 import Visualizer as rlvis
 
 from collections import deque
@@ -82,6 +82,7 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
 
 
     '''
+    # print all the arguments
 
     set_global_seeds(seed)
     logger = rlvis.RLLogger(policy="PPO", environment=eval_env, seed=seed) # This is the logger from Momo to get a proper .json file for plots
@@ -133,6 +134,9 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
 
     nupdates = total_timesteps//nbatch
     for update in range(1, nupdates+1):
+        # print("nbatch: ", nbatch)
+        # print("update: ", update)
+        # print("nsteps: ", nsteps)
         assert nbatch % nminibatches == 0
         # Start timer
         tstart = time.perf_counter()
@@ -146,12 +150,17 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
 
         # Get minibatch
         obs, returns, masks, actions, values, neglogpacs, states, epinfos = runner.run() #pylint: disable=E0632
+        # print("epinfos: ", epinfos)
         if eval_env is not None:
             eval_obs, eval_returns, eval_masks, eval_actions, eval_values, eval_neglogpacs, eval_states, eval_epinfos = eval_runner.run() #pylint: disable=E0632
 
         #if update % log_interval == 0 and is_mpi_root: logger.info('Done.')
 
         epinfobuf.extend(epinfos)
+        # print("epinfo",epinfos)
+        # # print len of epinfos
+        # print("len epinfos: ", len(epinfos))
+        # print("epinfobuf: ", epinfobuf)
         if eval_env is not None:
             eval_epinfobuf.extend(eval_epinfos)
 
@@ -191,13 +200,24 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
         tnow = time.perf_counter()
         # Calculate the fps (frame per second)
         fps = int(nbatch / (tnow - tstart))
+        print('eprewmean', max([epinfo['r'] for epinfo in epinfobuf]))
+        print('eplenmean',max([epinfo['l'] for epinfo in epinfobuf]))
 
-
-        for i, epinfo in enumerate(epinfos):
-            logger.log_episode(total_timesteps=update * nbatch,
-            episode_num=(update - 1) * (nbatch // nsteps) + i + 1,
-            episode_timesteps=epinfo.get('l', nsteps),
-            reward=epinfo['r'])
+        # # # for i, epinfo in enumerate(epinfos):
+        # # #     # print("epinfo: ", epinfo)
+        # # #     # print("epinfo.get('l'): ", epinfo.get('l'))
+        # # #     # print("i: ", i)
+        # # #     logger.log_episode(total_timesteps=update * nbatch,
+        # # #     episode_num= update, #(update - 1) * (nbatch // nsteps) + i + 1,
+        # # #     episode_timesteps=i*epinfo.get('l', nsteps),
+        # # #     reward=epinfo['r'])
+        logger.log_episode(
+            total_timesteps=update * nbatch,
+            episode_num=update,
+            episode_timesteps= max([epinfo['l'] for epinfo in epinfobuf]),
+            reward=max([epinfo['r'] for epinfo in epinfobuf])
+        )
+        #Get the last value of epinfos['r']
 
         """
         # Log each episode returned in this update
@@ -222,8 +242,13 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
             savepath = osp.join(checkdir, '%.5i'%update)
             print('Saving to', savepath)
             model.save(savepath)
-    env_name = "MountainCar-v0"
-    filename = f"/home/maillet/RL-project/PPO/baselines-master/output-json/{env_name}_seed-{seed}.json"
+    # env_name = "MountainCar-v0"
+    # env_name = "CartPole-v1"
+    # env_name = "Pendulum-v0"¨
+    env_name = "MountainCarContinuous-v0"
+
+    # filename = f"/home/maillet/RL-project/PPO/baselines-master/output-json/{env_name}_seed-{seed}.json"
+    filename = f"C:/Users/franc/Documents/Cours/EPFL/M2/Reinforcement Learning/Final_project/RL-project/PPO/baselines-master/output-json/{env_name}_seed-{seed}.json"
     json_path = logger.save(filename)
     return model
 # Avoid division error when calculate the mean (in our case if epinfo is empty returns np.nan, not return an error)
