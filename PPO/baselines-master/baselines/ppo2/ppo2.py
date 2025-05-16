@@ -5,7 +5,7 @@ import numpy as np
 import os.path as osp
 #from baselines import logger
 
-sys.path.append(r"C:\Users\franc\Documents\Cours\EPFL\M2\Reinforcement Learning\Final_project\RL-project")
+sys.path.append("/home/maillet/RL-project")
 
 import Visualizer as rlvis
 
