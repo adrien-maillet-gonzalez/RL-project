@@ -244,8 +244,8 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
             model.save(savepath)
     # env_name = "MountainCar-v0"
     # env_name = "CartPole-v1"
-    # env_name = "Pendulum-v0"¨
-    env_name = "MountainCarContinuous-v0"
+    env_name = "Pendulum-v0"
+    # env_name = "MountainCarContinuous-v0"
 
     # filename = f"/home/maillet/RL-project/PPO/baselines-master/output-json/{env_name}_seed-{seed}.json"
     filename = f"C:/Users/franc/Documents/Cours/EPFL/M2/Reinforcement Learning/Final_project/RL-project/PPO/baselines-master/output-json/{env_name}_seed-{seed}.json"
