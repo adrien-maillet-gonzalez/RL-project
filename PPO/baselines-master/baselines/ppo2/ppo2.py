@@ -5,8 +5,8 @@ import numpy as np
 import os.path as osp
 #from baselines import logger
 
-# sys.path.append("/home/maillet/RL-project")
-sys.path.append(r"C:\Users\franc\Documents\Cours\EPFL\M2\Reinforcement Learning\Final_project\RL-project")
+sys.path.append("/home/maillet/RL-project")
+#sys.path.append(r"C:\Users\franc\Documents\Cours\EPFL\M2\Reinforcement Learning\Final_project\RL-project")
 import Visualizer as rlvis
 
 from collections import deque
@@ -85,7 +85,20 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
     # print all the arguments
 
     set_global_seeds(seed)
+    
+    # ------------------------------------------------------------------------------------------------------
+
+    # Set the correct environment name for the output json file and the plots
+    # env_name = "MountainCar-v0"
+    #env_name = "CartPole-v1"
+    # env_name = "Pendulum-v0"¨
+    env_name = "MountainCarContinuous-v0"
+
+    # Initialize the logger to the name of the policy, the environment name and the seed
     logger = rlvis.RLLogger(policy="PPO", environment=eval_env, seed=seed) # This is the logger from Momo to get a proper .json file for plots
+    
+    # ------------------------------------------------------------------------------------------------------
+
     if isinstance(lr, float): lr = constfn(lr)
     else: assert callable(lr)
     if isinstance(cliprange, float): cliprange = constfn(cliprange)
@@ -243,12 +256,12 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
             print('Saving to', savepath)
             model.save(savepath)
     # env_name = "MountainCar-v0"
-    # env_name = "CartPole-v1"
+    #env_name = "CartPole-v1"
     # env_name = "Pendulum-v0"¨
-    env_name = "MountainCarContinuous-v0"
+    #env_name = "MountainCarContinuous-v0"
 
-    # filename = f"/home/maillet/RL-project/PPO/baselines-master/output-json/{env_name}_seed-{seed}.json"
-    filename = f"C:/Users/franc/Documents/Cours/EPFL/M2/Reinforcement Learning/Final_project/RL-project/PPO/baselines-master/output-json/{env_name}_seed-{seed}.json"
+    filename = f"/home/maillet/RL-project/PPO/baselines-master/output-json/{env_name}_seed-{seed}.json"
+    #filename = f"C:/Users/franc/Documents/Cours/EPFL/M2/Reinforcement Learning/Final_project/RL-project/PPO/baselines-master/output-json/{env_name}_seed-{seed}.json"
     json_path = logger.save(filename)
     return model
 # Avoid division error when calculate the mean (in our case if epinfo is empty returns np.nan, not return an error)
