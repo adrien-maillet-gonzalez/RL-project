@@ -5,8 +5,8 @@ import numpy as np
 import os.path as osp
 #from baselines import logger
 
-sys.path.append("/home/maillet/RL-project")
-#sys.path.append(r"C:\Users\franc\Documents\Cours\EPFL\M2\Reinforcement Learning\Final_project\RL-project")
+# sys.path.append("/home/maillet/RL-project")
+sys.path.append(r"C:\Users\franc\Documents\Cours\EPFL\M2\Reinforcement Learning\Final_project\RL-project")
 import Visualizer as rlvis
 
 from collections import deque
@@ -24,9 +24,13 @@ def constfn(val):
         return val
     return f
 
+# def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2048, ent_coef=0.0, lr=3e-4,
+#             vf_coef=0.5,  max_grad_norm=0.5, gamma=0.99, lam=0.95,
+#             log_interval=10, nminibatches=4, noptepochs=4, cliprange=0.2,
+#             save_interval=0, load_path=None, model_fn=None, update_fn=None, init_fn=None, mpi_rank_weight=1, comm=None, **network_kwargs):
 def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2048, ent_coef=0.0, lr=3e-4,
             vf_coef=0.5,  max_grad_norm=0.5, gamma=0.99, lam=0.95,
-            log_interval=10, nminibatches=4, noptepochs=4, cliprange=0.2,
+            log_interval=10, nminibatches=64, noptepochs=10, cliprange=0.2,
             save_interval=0, load_path=None, model_fn=None, update_fn=None, init_fn=None, mpi_rank_weight=1, comm=None, **network_kwargs):
     '''
     Learn policy using PPO algorithm (https://arxiv.org/abs/1707.06347)
@@ -91,8 +95,8 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
     # Set the correct environment name for the output json file and the plots
     # env_name = "MountainCar-v0"
     #env_name = "CartPole-v1"
-    # env_name = "Pendulum-v0"¨
-    env_name = "MountainCarContinuous-v0"
+    env_name = "Pendulum-v0"
+    # env_name = "MountainCarContinuous-v0"
 
     # Initialize the logger to the name of the policy, the environment name and the seed
     logger = rlvis.RLLogger(policy="PPO", environment=eval_env, seed=seed) # This is the logger from Momo to get a proper .json file for plots
@@ -213,8 +217,8 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
         tnow = time.perf_counter()
         # Calculate the fps (frame per second)
         fps = int(nbatch / (tnow - tstart))
-        print('eprewmean', max([epinfo['r'] for epinfo in epinfobuf]))
-        print('eplenmean',max([epinfo['l'] for epinfo in epinfobuf]))
+        print('\n eprewmean', max([epinfo['r'] for epinfo in epinfobuf]))
+        # print('eplenmean',max([epinfo['l'] for epinfo in epinfobuf]))
 
         # # # for i, epinfo in enumerate(epinfos):
         # # #     # print("epinfo: ", epinfo)
@@ -256,12 +260,12 @@ def learn(*, network, env, total_timesteps, eval_env = None, seed=None, nsteps=2
             print('Saving to', savepath)
             model.save(savepath)
     # env_name = "MountainCar-v0"
-    #env_name = "CartPole-v1"
+    # env_name = "CartPole-v1"
     # env_name = "Pendulum-v0"¨
-    #env_name = "MountainCarContinuous-v0"
+    # env_name = "MountainCarContinuous-v0"
 
-    filename = f"/home/maillet/RL-project/PPO/baselines-master/output-json/{env_name}_seed-{seed}.json"
-    #filename = f"C:/Users/franc/Documents/Cours/EPFL/M2/Reinforcement Learning/Final_project/RL-project/PPO/baselines-master/output-json/{env_name}_seed-{seed}.json"
+    # filename = f"/home/maillet/RL-project/PPO/baselines-master/output-json/{env_name}_seed-{seed}.json"
+    filename = f"C:/Users/franc/Documents/Cours/EPFL/M2/Reinforcement Learning/Final_project/RL-project/PPO/baselines-master/output-json/{env_name}_seed-{seed}.json"
     json_path = logger.save(filename)
     return model
 # Avoid division error when calculate the mean (in our case if epinfo is empty returns np.nan, not return an error)
