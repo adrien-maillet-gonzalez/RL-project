@@ -8,7 +8,7 @@
 #SBATCH --gres=gpu:1
 
 
-SEED = ${1:-0}
+SEED=${1:-0}
 
 
 # Activate your environment
@@ -18,4 +18,4 @@ source /home/maillet/venvs/env_td3/bin/activate
 cd /home/maillet/RL-project/TD3
 
 # Run your code
-python main.py --policy "TD3" --env Pendulum-v1 --max_timesteps 100000 --seed SEED
+python main.py --policy "TD3" --env Pendulum-v1 --max_timesteps 100000 --seed "$SEED"
