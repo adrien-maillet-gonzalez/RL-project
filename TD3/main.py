@@ -175,4 +175,5 @@ if __name__ == "__main__":
 
 	# Save the result to the output .json file
 	print("Saving .json file")
+	print(f"Juste pour tester max timesteps per episode: {env._max_episode_steps}")
 	json_path = logger.save()

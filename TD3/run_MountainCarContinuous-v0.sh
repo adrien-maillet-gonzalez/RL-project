@@ -7,6 +7,9 @@
 #SBATCH --cpus-per-task=4          # Adjust cores as needed
 #SBATCH --gres=gpu:1               # (If you need a GPU - remove this if CPU only)
 
+
+SEED=${1:-0}
+
 # Activate your environment
 source /home/maillet/venvs/env_td3/bin/activate
 
@@ -14,4 +17,4 @@ source /home/maillet/venvs/env_td3/bin/activate
 cd /home/maillet/RL-project/TD3
 
 # Run your code
-python main.py --policy "TD3" --env MountainCarContinuous-v0 --seed 2 --expl_noise 0.7
+python main.py --policy "TD3" --env MountainCarContinuous-v0 --seed "$SEED" --expl_noise 0.7
