@@ -1,7 +1,7 @@
 #!/bin/bash
-#SBATCH --job-name=rl_training
-#SBATCH --output=TD3_Pendulum-v1_seed-0_%j.out
-#SBATCH --error=TD3_Pendulum-v1_seed-0_%j.err
+#SBATCH --job-name=pendulum_training
+#SBATCH --output=TD3_Pendulum-v1_%j.out
+#SBATCH --error=TD3_Pendulum-v1_%j.err
 #SBATCH --time=04:00:00            # Adjust time as needed
 #SBATCH --mem=4G                   # Adjust memory as needed
 #SBATCH --cpus-per-task=4          # Adjust cores as needed
