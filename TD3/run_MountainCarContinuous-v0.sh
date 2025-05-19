@@ -17,4 +17,4 @@ source /home/maillet/venvs/env_td3/bin/activate
 cd /home/maillet/RL-project/TD3
 
 # Run your code
-python main.py --policy "TD3" --env MountainCarContinuous-v0 --seed "$SEED" --expl_noise 0.7 --max_timesteps 100000
+python main.py --policy "TD3" --env MountainCarContinuous-v0 --seed "$SEED" --expl_noise 0.7 --max_timesteps 500000
