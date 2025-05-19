@@ -10,6 +10,11 @@ import TD3
 import OurDDPG
 import DDPG
 
+# .json report file for plots
+import sys
+import os
+sys.path.append(os.path.abspath('..'))
+import Visualizer as rlvis
 
 # Runs policy for X episodes and returns average reward
 # A fixed seed is used for the eval environment
@@ -33,6 +38,7 @@ def eval_policy(policy, env_name, seed, eval_episodes=10):
 	print("---------------------------------------")
 	print(f"Evaluation over {eval_episodes} episodes: {avg_reward:.3f}")
 	print("---------------------------------------")
+	#logger.log_evaluation(at_timesteps=5000, eval_episodes=eval_episodes, avg_reward=avg_reward)
 	return avg_reward
 
 
@@ -49,8 +55,8 @@ if __name__ == "__main__":
 	parser.add_argument("--batch_size", default=256, type=int)      # Batch size for both actor and critic
 	parser.add_argument("--discount", default=0.99, type=float)     # Discount factor
 	parser.add_argument("--tau", default=0.005, type=float)         # Target network update rate
-	parser.add_argument("--policy_noise", default=0.2)              # Noise added to target policy during critic update
-	parser.add_argument("--noise_clip", default=0.5)                # Range to clip target policy noise
+	parser.add_argument("--policy_noise", default=0.2, type=float)  # Noise added to target policy during critic update
+	parser.add_argument("--noise_clip", default=0.5, type=float)    # Range to clip target policy noise
 	parser.add_argument("--policy_freq", default=2, type=int)       # Frequency of delayed policy updates
 	parser.add_argument("--save_model", action="store_true")        # Save model and optimizer parameters
 	parser.add_argument("--load_model", default="")                 # Model load file name, "" doesn't load, "default" uses file_name
@@ -67,6 +73,15 @@ if __name__ == "__main__":
 	if args.save_model and not os.path.exists("./models"):
 		os.makedirs("./models")
 
+	# Set the logger
+	logger = rlvis.RLLogger(policy=args.policy, environment=args.env, seed=args.seed)
+
+	if args.env == "Pendulum-v1":
+		total_timesteps = 200
+	else:
+		total_timesteps = 10000
+
+
 	env = gym.make(args.env)
 
 	# Set seeds
@@ -77,7 +92,7 @@ if __name__ == "__main__":
 	random.seed(args.seed)
 	
 	state_dim = env.observation_space.shape[0]
-	action_dim = env.action_space.shape[0] 
+	action_dim = env.action_space.shape[0]
 	max_action = float(env.action_space.high[0])
 
 	kwargs = {
@@ -116,7 +131,6 @@ if __name__ == "__main__":
 	episode_num = 0
 
 	for t in range(int(args.max_timesteps)):
-		
 		episode_timesteps += 1
 
 		# Select action randomly or according to policy
@@ -145,6 +159,7 @@ if __name__ == "__main__":
 
 		if done: 
 			print(f"Total T: {t+1} Episode Num: {episode_num+1} Episode T: {episode_timesteps} Reward: {episode_reward:.3f}")
+			logger.log_episode(total_timesteps=total_timesteps, episode_num=episode_num+1, episode_timesteps=episode_timesteps, reward=episode_reward)
 			state, _ = env.reset()
 			done = False
 			episode_reward = 0
@@ -157,3 +172,7 @@ if __name__ == "__main__":
 			np.save(f"./results/{file_name}", evaluations)
 			if args.save_model:
 				policy.save(f"./models/{file_name}")
+
+	# Save the result to the output .json file
+	print("Saving .json file")
+	json_path = logger.save()
