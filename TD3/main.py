@@ -175,6 +175,4 @@ if __name__ == "__main__":
 				policy.save(f"./models/{file_name}")
 
 	# Save the result to the output .json file
-	print("Saving .json file")
-	print(f"Juste pour tester max timesteps per episode: {env._max_episode_steps}")
 	json_path = logger.save(f"/home/maillet/RL-project/TD3/JSON_FILES/{args.env}_{args.seed}.json")
