@@ -1,9 +1,0 @@
-/var/spool/slurmd/job2640972/slurm_script: line 11: SEED: command not found
-usage: main.py [-h] [--policy POLICY] [--env ENV] [--seed SEED]
-               [--start_timesteps START_TIMESTEPS] [--eval_freq EVAL_FREQ]
-               [--max_timesteps MAX_TIMESTEPS] [--expl_noise EXPL_NOISE]
-               [--batch_size BATCH_SIZE] [--discount DISCOUNT] [--tau TAU]
-               [--policy_noise POLICY_NOISE] [--noise_clip NOISE_CLIP]
-               [--policy_freq POLICY_FREQ] [--save_model]
-               [--load_model LOAD_MODEL]
-main.py: error: argument --seed: invalid int value: 'SEED'

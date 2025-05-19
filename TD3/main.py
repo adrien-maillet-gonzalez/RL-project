@@ -43,7 +43,7 @@ def eval_policy(policy, env_name, seed, eval_episodes=10):
 
 
 if __name__ == "__main__":
-	
+
 	parser = argparse.ArgumentParser()
 	parser.add_argument("--policy", default="TD3")                  # Policy name (TD3, DDPG or OurDDPG)
 	parser.add_argument("--env", default="HalfCheetah-v2")          # OpenAI gym environment name
@@ -90,7 +90,7 @@ if __name__ == "__main__":
 	torch.manual_seed(args.seed)
 	np.random.seed(args.seed)
 	random.seed(args.seed)
-	
+
 	state_dim = env.observation_space.shape[0]
 	action_dim = env.action_space.shape[0]
 	max_action = float(env.action_space.high[0])
@@ -120,7 +120,8 @@ if __name__ == "__main__":
 		policy.load(f"./models/{policy_file}")
 
 	replay_buffer = utils.ReplayBuffer(state_dim, action_dim)
-	
+
+
 	# Evaluate untrained policy
 	evaluations = [eval_policy(policy, args.env, args.seed)]
 
@@ -143,7 +144,7 @@ if __name__ == "__main__":
 			).clip(-max_action, max_action)
 
 		# Perform action
-		next_state, reward, terminated, truncated, _ = env.step(action) 
+		next_state, reward, terminated, truncated, _ = env.step(action)
 		done = terminated or truncated
 		done_bool = float(done) if episode_timesteps < env._max_episode_steps else 0
 
@@ -157,14 +158,14 @@ if __name__ == "__main__":
 		if t >= args.start_timesteps:
 			policy.train(replay_buffer, args.batch_size)
 
-		if done: 
+		if done:
 			print(f"Total T: {t+1} Episode Num: {episode_num+1} Episode T: {episode_timesteps} Reward: {episode_reward:.3f}")
 			logger.log_episode(total_timesteps=total_timesteps, episode_num=episode_num+1, episode_timesteps=episode_timesteps, reward=episode_reward)
 			state, _ = env.reset()
 			done = False
 			episode_reward = 0
 			episode_timesteps = 0
-			episode_num += 1 
+			episode_num += 1
 
 		# Evaluate episode
 		if (t + 1) % args.eval_freq == 0:
@@ -176,4 +177,4 @@ if __name__ == "__main__":
 	# Save the result to the output .json file
 	print("Saving .json file")
 	print(f"Juste pour tester max timesteps per episode: {env._max_episode_steps}")
-	json_path = logger.save()
+	json_path = logger.save(f"/home/maillet/RL-project/TD3/JSON_FILES/{args.env}_{args.seed}.json")

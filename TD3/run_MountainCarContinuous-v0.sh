@@ -1,7 +1,7 @@
 #!/bin/bash
-#SBATCH --job-name=rl_training
-#SBATCH --output=TD3_MountainCarContinuous-v0_seed-2_expl_noise_0.7_%j.out
-#SBATCH --error=TD3_MountainCarContinuous-v0_seed-2_expl_noise_0.7_%j.err
+#SBATCH --job-name=MountainCarContinuous_training
+#SBATCH --output=TD3_MountainCarContinuous-v0_expl_noise_0.7_%j.out
+#SBATCH --error=TD3_MountainCarContinuous-v0_expl_noise_0.7_%j.err
 #SBATCH --time=02:00:00            # Adjust time as needed
 #SBATCH --mem=4G                  # Adjust memory as needed
 #SBATCH --cpus-per-task=4          # Adjust cores as needed
