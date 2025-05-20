@@ -1,0 +1,14 @@
+critical libmamba Shell not initialized
+2025-05-20 00:49:56.797106: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-05-20 00:50:00.798591: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-05-20 00:50:03.887038: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2025-05-20 00:50:11.987476: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1635] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 31141 MB memory:  -> device: 0, name: Tesla V100-PCIE-32GB, pci bus id: 0000:d8:00.0, compute capability: 7.0
+WARNING:tensorflow:From /home/pinoprie/.local/share/mamba/envs/sac-tfagents/lib/python3.8/site-packages/tf_agents/replay_buffers/tf_uniform_replay_buffer.py:342: CounterV2 (from tensorflow.python.data.experimental.ops.counter) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.counter(...)` instead.
+WARNING:tensorflow:From /home/pinoprie/.local/share/mamba/envs/sac-tfagents/lib/python3.8/site-packages/tf_agents/replay_buffers/tf_uniform_replay_buffer.py:342: CounterV2 (from tensorflow.python.data.experimental.ops.counter) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.counter(...)` instead.
+/var/spool/slurmd/job2642176/slurm_script: line 23: 3314485 Killed                  python sac.py
+slurmstepd: error: Detected 1 oom_kill event in StepId=2642176.batch. Some of the step tasks have been OOM Killed.

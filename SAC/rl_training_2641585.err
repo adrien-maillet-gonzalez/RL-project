@@ -1,0 +1,5 @@
+critical libmamba Shell not initialized
+Traceback (most recent call last):
+  File "/home/pinoprie/new_rl/RL-project/SAC/sac.py", line 3, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
