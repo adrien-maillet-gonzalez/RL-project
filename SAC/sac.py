@@ -60,13 +60,13 @@ def create_sequential_critic_network(obs_units, act_units, joint_units):
 def run_sac_seed(seed,
                  #env_name = "MountainCarContinuous-v0",
                  env_name="Pendulum-v1",
-                 num_parallel=64*4,
-                 collect_steps=128*2,
+                 num_parallel=200,
+                 collect_steps=200,
                  batch_size=256*4,
                  replay_buffer_max=200_000,
                  learning_rate=1e-4,
-                 num_iterations=100_000,#50_000,
-                 eval_interval=5_000):
+                 num_iterations=1_000,#50_000,
+                 eval_interval=10_000):
     os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
     random.seed(seed); np.random.seed(seed); tf.random.set_seed(seed)
 

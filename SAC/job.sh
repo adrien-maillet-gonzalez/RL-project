@@ -2,8 +2,8 @@
 #SBATCH --job-name=rl_training
 #SBATCH --output=rl_training_%j.out
 #SBATCH --error=rl_training_%j.err
-#SBATCH --time=04:00:00            # Adjust time as needed
-#SBATCH --mem=8G                   # Adjust memory as needed
+#SBATCH --time=07:00:00            # Adjust time as needed
+#SBATCH --mem=32G                   # Adjust memory as needed
 #SBATCH --cpus-per-task=4          # Adjust cores as needed
 #SBATCH --gres=gpu:1               # (If you need a GPU - remove this if CPU only)
 
@@ -16,7 +16,7 @@ module load gcc/11.3.0
 # Load CUDA 11.8 and its corresponding cuDNN 8.7
 module load cuda/11.8.0
 module load cudnn/8.7.0.84-11.8
-module list
+#module list
 # Activate your environment
 
 
