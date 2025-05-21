@@ -227,7 +227,7 @@ def optimize_model():
     optimizer.zero_grad()
     loss.backward()
     # In-place gradient clipping
-    torch.nn.utils.clip_grad_value_(policy_net.parameters(), 100)
+    torch.nn.utils.clip_grad_value_(policy_net.parameters(), 10)
     optimizer.step()
 
     return loss.item()
@@ -238,9 +238,9 @@ def optimize_model():
 # -------------------
 
 if torch.cuda.is_available() or torch.backends.mps.is_available():
-    num_episodes = 300
+    num_episodes = 4000
 else:
-    num_episodes = 50
+    num_episodes = 4000
 
 # Create output directory for logs
 
