@@ -62,10 +62,10 @@ def run_sac_seed(seed,
                  env_name="Pendulum-v1",
                  num_parallel=200,
                  collect_steps=200,
-                 batch_size=256*4,
+                 batch_size=256*2,
                  replay_buffer_max=200_000,
                  learning_rate=1e-4,
-                 num_iterations=1_000,#50_000,
+                 num_iterations=100_000,#50_000,
                  eval_interval=10_000):
     os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
     random.seed(seed); np.random.seed(seed); tf.random.set_seed(seed)
@@ -146,7 +146,6 @@ def run_sac_seed(seed,
                 })
                 ep_rewards[i] = 0.0
                 ep_steps[i] = 0
-
     start_time = datetime.now().isoformat(timespec='seconds')
 
     pbar = trange(num_iterations + 1, desc=f"Seed {seed}", dynamic_ncols=True)

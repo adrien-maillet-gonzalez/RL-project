@@ -3,7 +3,7 @@
 #SBATCH --output=rl_training_%j.out
 #SBATCH --error=rl_training_%j.err
 #SBATCH --time=07:00:00            # Adjust time as needed
-#SBATCH --mem=32G                   # Adjust memory as needed
+#SBATCH --mem=96G                   # Adjust memory as needed
 #SBATCH --cpus-per-task=4          # Adjust cores as needed
 #SBATCH --gres=gpu:1               # (If you need a GPU - remove this if CPU only)
 
