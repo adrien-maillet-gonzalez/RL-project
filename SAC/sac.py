@@ -58,8 +58,8 @@ def create_sequential_critic_network(obs_units, act_units, joint_units):
 
 
 def run_sac_seed(seed,
-                 #env_name = "MountainCarContinuous-v0",
-                 env_name="Pendulum-v1",
+                 env_name = "MountainCarContinuous-v0",
+                 #env_name="Pendulum-v1",
                  num_parallel=200,
                  collect_steps=200,
                  batch_size=256*2,
