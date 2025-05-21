@@ -21,8 +21,8 @@ import torch.nn.functional as F  # noqa: E402
 # Import the RLLogger from Visualizer
 from Visualizer.logger import RLLogger  # noqa: E402
 
-seed = 5
-ENV_NAME = "CartPole-v1"
+seed = 0
+ENV_NAME = "MountainCar-v0"
 LOG_DIR = os.path.join(current_dir, "logs")
 POLICY_NAME = "DQN"
 MODEL_DIR = os.path.join(current_dir, "models")
@@ -98,11 +98,11 @@ class DQN(nn.Module):
 
 BATCH_SIZE = 128
 GAMMA = 0.99
-EPS_START = 0.9
-EPS_END = 0.05
-EPS_DECAY = 1000
+EPS_START = 1.0  # start with full exploration
+EPS_END = 0.01  # minimal exploration level
+EPS_DECAY = 20000  # slower decay for prolonged exploration
 TAU = 0.005
-LR = 1e-4
+LR = 1e-3  # slightly higher learning rate for MountainCar
 
 # Get number of actions from gym action space
 n_actions = env.action_space.n
@@ -114,7 +114,9 @@ policy_net = DQN(n_observations, n_actions).to(device)
 target_net = DQN(n_observations, n_actions).to(device)
 
 try:
-    policy_net.load_state_dict(torch.load(os.path.join(MODEL_DIR, "dqn_cartpole.pth")))
+    policy_net.load_state_dict(
+        torch.load(os.path.join(MODEL_DIR, f"{POLICY_NAME}_{ENV_NAME}.pth"))
+    )
     target_net.load_state_dict(policy_net.state_dict())
     print("Model loaded successfully")
 except FileNotFoundError:
@@ -148,23 +150,23 @@ def select_action(state):
         )
 
 
-episode_durations = []
+episode_rewards = []
 
 
 def plot_durations(show_result=False):
     plt.figure(1)
-    durations_t = torch.tensor(episode_durations, dtype=torch.float)
+    rewards_t = torch.tensor(episode_rewards, dtype=torch.float)
     if show_result:
         plt.title("Result")
     else:
         plt.clf()
         plt.title("Training...")
     plt.xlabel("Episode")
-    plt.ylabel("Duration")
-    plt.plot(durations_t.numpy())
+    plt.ylabel("Reward")
+    plt.plot(rewards_t.numpy())
     # Take 100 episode averages and plot them too
-    if len(durations_t) >= 100:
-        means = durations_t.unfold(0, 100, 1).mean(1).view(-1)
+    if len(rewards_t) >= 100:
+        means = rewards_t.unfold(0, 100, 1).mean(1).view(-1)
         means = torch.cat((torch.zeros(99), means))
         plt.plot(means.numpy())
 
@@ -227,7 +229,7 @@ def optimize_model():
     optimizer.zero_grad()
     loss.backward()
     # In-place gradient clipping
-    torch.nn.utils.clip_grad_value_(policy_net.parameters(), 10)
+    torch.nn.utils.clip_grad_value_(policy_net.parameters(), 10000)
     optimizer.step()
 
     return loss.item()
@@ -267,11 +269,15 @@ for i_episode in range(num_episodes):
 
     for t in count():
         action = select_action(state)
-        observation, reward, terminated, truncated, _ = env.step(action.item())
-        reward = torch.tensor([reward], device=device)
+        observation, base_reward, terminated, truncated, _ = env.step(action.item())
+        # Reward shaping: add bonus proportional to horizontal position
+        position = observation[0]
+        alpha = 1.0  # increased shaping bonus
+        shaped_reward = base_reward + alpha * (position + 0.5)
+        reward = torch.tensor([shaped_reward], device=device)
         done = terminated or truncated
 
-        episode_reward += reward.item()
+        episode_reward += shaped_reward
         episode_timesteps += 1
         total_timesteps += 1
 
@@ -304,7 +310,7 @@ for i_episode in range(num_episodes):
         target_net.load_state_dict(target_net_state_dict)
 
         if done:
-            episode_durations.append(t + 1)
+            episode_rewards.append(episode_reward)
             plot_durations()
 
             # Log episode data
@@ -329,8 +335,10 @@ plot_durations(show_result=True)
 final_log_path = logger.save()
 print(f"Training complete! Final log saved to: {final_log_path}")
 
-torch.save(policy_net.state_dict(), os.path.join(MODEL_DIR, "dqn_cartpole.pth"))
-print("Saved policy_net weights to 'dqn_cartpole.pth'")
+torch.save(
+    policy_net.state_dict(), os.path.join(MODEL_DIR, f"{POLICY_NAME}_{ENV_NAME}.pth")
+)
+print(f"Saved policy_net weights to '{POLICY_NAME}_{ENV_NAME}.pth'")
 
 plt.ioff()
 plt.show()
