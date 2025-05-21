@@ -99,10 +99,10 @@ class DQN(nn.Module):
 BATCH_SIZE = 128
 GAMMA = 0.99
 EPS_START = 1.0  # start with full exploration
-EPS_END = 0.01  # minimal exploration level
-EPS_DECAY = 20000  # slower decay for prolonged exploration
+EPS_END = 0.1  # minimal exploration level
+EPS_DECAY = 1000000  # slower decay for prolonged exploration
 TAU = 0.005
-LR = 1e-3  # slightly higher learning rate for MountainCar
+LR = 1e-4  # slightly higher learning rate for MountainCar
 
 # Get number of actions from gym action space
 n_actions = env.action_space.n
@@ -125,7 +125,7 @@ except FileNotFoundError:
 
 
 optimizer = optim.AdamW(policy_net.parameters(), lr=LR, amsgrad=True)
-memory = ReplayMemory(10000)
+memory = ReplayMemory(100000) # Increased from 10000 
 
 
 steps_done = 0
@@ -134,9 +134,8 @@ steps_done = 0
 def select_action(state):
     global steps_done
     sample = random.random()
-    eps_threshold = EPS_END + (EPS_START - EPS_END) * math.exp(
-        -1.0 * steps_done / EPS_DECAY
-    )
+    eps_threshold = EPS_END + (EPS_START - EPS_END) * min(1.0, max(0.1, 1.0 - float(steps_done) / EPS_DECAY))
+
     steps_done += 1
     if sample > eps_threshold:
         with torch.no_grad():
@@ -229,7 +228,7 @@ def optimize_model():
     optimizer.zero_grad()
     loss.backward()
     # In-place gradient clipping
-    torch.nn.utils.clip_grad_value_(policy_net.parameters(), 10000)
+    torch.nn.utils.clip_grad_value_(policy_net.parameters(), 100)
     optimizer.step()
 
     return loss.item()
@@ -240,9 +239,9 @@ def optimize_model():
 # -------------------
 
 if torch.cuda.is_available() or torch.backends.mps.is_available():
-    num_episodes = 500
+    num_episodes = 2000
 else:
-    num_episodes = 500
+    num_episodes = 2000
 
 # Create output directory for logs
 
@@ -272,8 +271,11 @@ for i_episode in range(num_episodes):
         observation, base_reward, terminated, truncated, _ = env.step(action.item())
         # Reward shaping: add bonus proportional to horizontal position
         position = observation[0]
-        alpha = 1.0  # increased shaping bonus
-        shaped_reward = base_reward + alpha * (position + 0.5)
+        #alpha = 1.0  # increased shaping bonus
+        if position >= 0.25:
+            shaped_reward = base_reward + 0.25
+        else:
+            shaped_reward = base_reward
         reward = torch.tensor([shaped_reward], device=device)
         done = terminated or truncated
 
