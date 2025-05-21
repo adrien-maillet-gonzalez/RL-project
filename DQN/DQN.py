@@ -21,7 +21,7 @@ import torch.nn.functional as F  # noqa: E402
 # Import the RLLogger from Visualizer
 from Visualizer.logger import RLLogger  # noqa: E402
 
-seed = 42
+seed = 0
 ENV_NAME = "CartPole-v1"
 LOG_DIR = os.path.join(current_dir, "logs")
 POLICY_NAME = "DQN"
@@ -238,9 +238,9 @@ def optimize_model():
 # -------------------
 
 if torch.cuda.is_available() or torch.backends.mps.is_available():
-    num_episodes = 4000
+    num_episodes = 500
 else:
-    num_episodes = 4000
+    num_episodes = 500
 
 # Create output directory for logs
 
