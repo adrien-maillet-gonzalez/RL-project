@@ -184,7 +184,7 @@ class MountainCarDQL():
                 if step_count > self.network_sync_rate:
                     target_dqn.load_state_dict(policy_dqn.state_dict())
                     step_count=0    
-
+            
             # Log episode data
             logger.log_episode(
                 total_timesteps=step_count,
@@ -301,5 +301,5 @@ class MountainCarDQL():
 if __name__ == '__main__':
 
     mountaincar = MountainCarDQL()
-    # mountaincar.train(20000)
-    mountaincar.test(10, "mountaincar_dql_14576.pt")
+    mountaincar.train(20000)
+    # mountaincar.test(10, "mountaincar_dql_14576.pt")

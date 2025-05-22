@@ -5,6 +5,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 from collections import namedtuple, deque
 from itertools import count
+import numpy as np
 import os
 import sys
 
@@ -26,7 +27,7 @@ ENV_NAME = "MountainCar-v0"
 LOG_DIR = os.path.join(current_dir, "logs")
 POLICY_NAME = "DQN"
 MODEL_DIR = os.path.join(current_dir, "models")
-RENDER_MODE = True
+RENDER_MODE = False
 
 if RENDER_MODE:
     env = gym.make(ENV_NAME, render_mode="human")
@@ -91,6 +92,23 @@ class DQN(nn.Module):
         x = F.relu(self.layer2(x))
         return self.layer3(x)
 
+class StateDiscretizer:
+    def __init__(self, env, bins=20):
+        self.pos_bins = np.linspace(env.observation_space.low[0], 
+                                   env.observation_space.high[0], 
+                                   bins)
+        self.vel_bins = np.linspace(env.observation_space.low[1],
+                                   env.observation_space.high[1],
+                                   bins)
+    
+    def discretize(self, state):
+        return torch.FloatTensor([
+            np.digitize(state[0], self.pos_bins),
+            np.digitize(state[1], self.vel_bins)
+        ])
+
+# Initialize after env creation
+discretizer = StateDiscretizer(env)
 
 ######################################################################
 # Training
@@ -108,6 +126,7 @@ LR = 1e-4  # slightly higher learning rate for MountainCar
 n_actions = env.action_space.n
 # Get the number of state observations
 state, info = env.reset()
+state = discretizer.discretize(state).to(device)
 n_observations = len(state)
 
 policy_net = DQN(n_observations, n_actions).to(device)
@@ -266,37 +285,39 @@ for i_episode in range(num_episodes):
     episode_reward = 0
     episode_loss = 0
     episode_timesteps = 0
+    terminated = False 
 
     for t in count():
-        action = select_action(state)
-        observation, base_reward, terminated, truncated, _ = env.step(action.item())
-        # Reward shaping: add bonus proportional to horizontal position
-        position = observation[0]
-        #alpha = 1.0  # increased shaping bonus
-        if position >= 0.25:
-            shaped_reward = base_reward + 0.25
-        else:
-            shaped_reward = base_reward
-        reward = torch.tensor([shaped_reward], device=device)
-        done = terminated or truncated
+        while(not terminated and episode_reward>-1000):
+            action = select_action(state)
+            observation, base_reward, terminated, truncated, _ = env.step(action.item())
+            # Reward shaping: add bonus proportional to horizontal position
+            position = observation[0]
+            #alpha = 1.0  # increased shaping bonus
+            if position >= 0.25:
+                shaped_reward = base_reward + 0.25
+            else:
+                shaped_reward = base_reward
+            reward = torch.tensor([shaped_reward], device=device)
+            done = terminated or truncated
 
-        episode_reward += shaped_reward
-        episode_timesteps += 1
-        total_timesteps += 1
+            episode_reward += shaped_reward
+            episode_timesteps += 1
+            total_timesteps += 1
 
-        if terminated:
-            goal_reached = True
-            next_state = None
-        else:
-            next_state = torch.tensor(
-                observation, dtype=torch.float32, device=device
-            ).unsqueeze(0)
+            if terminated:
+                goal_reached = True
+                next_state = None
+            else:
+                next_state = torch.tensor(
+                    observation, dtype=torch.float32, device=device
+                ).unsqueeze(0)
 
-        # Store the transition in memory
-        memory.push(state, action, next_state, reward)
+            # Store the transition in memory
+            memory.push(state, action, next_state, reward)
 
-        # Move to the next state
-        state = next_state
+            # Move to the next state
+            state = next_state
 
         # Perform one step of the optimization (on the policy network)
         loss = optimize_model(goal_reached)
