@@ -60,7 +60,7 @@ def create_sequential_critic_network(obs_units, act_units, joint_units):
 def run_sac_seed(seed,
                  env_name = "MountainCarContinuous-v0",
                  #env_name="Pendulum-v1",
-                 num_parallel=200,
+                 num_parallel=5*200,
                  collect_steps=200,
                  batch_size=256*2,
                  replay_buffer_max=200_000,
@@ -96,7 +96,7 @@ def run_sac_seed(seed,
             critic_optimizer=tf.keras.optimizers.Adam(learning_rate),
             alpha_optimizer=tf.keras.optimizers.Adam(learning_rate),
             target_update_tau=0.005,
-            target_update_period=1,
+            target_update_period=10,
             td_errors_loss_fn=common.element_wise_squared_loss,
             gamma=0.99,
             reward_scale_factor=2.0,
@@ -196,7 +196,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import linregress
 
-seeds = [0, 1, 2]
+seeds = [0]
 all_rewards = []
 
 for s in seeds:
@@ -233,5 +233,5 @@ plt.ylabel('Mean Total Reward')
 plt.legend()
 plt.grid(True)
 plt.tight_layout()
-plt.savefig("sac_rewards_plotMountaincar.png")
+plt.savefig("2sac_rewards_plotMountaincar.png")
 plt.show()
