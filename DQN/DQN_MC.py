@@ -80,9 +80,9 @@ class ReplayMemory(object):
 class DQN(nn.Module):
     def __init__(self, n_observations, n_actions):
         super(DQN, self).__init__()
-        self.layer1 = nn.Linear(n_observations, 128)
-        self.layer2 = nn.Linear(128, 128)
-        self.layer3 = nn.Linear(128, n_actions)
+        self.layer1 = nn.Linear(n_observations, 64)
+        self.layer2 = nn.Linear(64, 64)
+        self.layer3 = nn.Linear(64, n_actions)
 
     # Called with either one element to determine next action, or a batch
     # during optimization. Returns tensor([[left0exp,right0exp]...]).
@@ -181,8 +181,8 @@ def plot_durations(show_result=False):
 ######################################################################
 # Training loop
 # -------------
-def optimize_model():
-    if len(memory) < BATCH_SIZE:
+def optimize_model(status):
+    if len(memory) < BATCH_SIZE or not status:
         return
     transitions = memory.sample(BATCH_SIZE)
     # Transpose the batch (see https://stackoverflow.com/a/19343/3343043 for
@@ -239,9 +239,9 @@ def optimize_model():
 # -------------------
 
 if torch.cuda.is_available() or torch.backends.mps.is_available():
-    num_episodes = 2000
+    num_episodes = 15000
 else:
-    num_episodes = 2000
+    num_episodes = 15000
 
 # Create output directory for logs
 
@@ -257,6 +257,7 @@ torch.manual_seed(seed)
 env.reset(seed=seed)
 
 total_timesteps = 0
+goal_reached = False
 for i_episode in range(num_episodes):
     # Initialize the environment and get its state
     state, info = env.reset()
@@ -284,6 +285,7 @@ for i_episode in range(num_episodes):
         total_timesteps += 1
 
         if terminated:
+            goal_reached = True
             next_state = None
         else:
             next_state = torch.tensor(
@@ -297,7 +299,7 @@ for i_episode in range(num_episodes):
         state = next_state
 
         # Perform one step of the optimization (on the policy network)
-        loss = optimize_model()
+        loss = optimize_model(goal_reached)
         if loss is not None:
             episode_loss += loss
 
