@@ -1,0 +1,3011 @@
+{
+  "experiment": {
+    "policy": "TD3",
+    "environment": "MountainCarContinuous-v0",
+    "seed": 0,
+    "start_time": "2025-05-25T17:39:28.851176"
+  },
+  "episodes": [
+    {
+      "total_timesteps": 10000,
+      "episode_num": 1,
+      "episode_timesteps": 999,
+      "reward": -32.50420102470027
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 2,
+      "episode_timesteps": 999,
+      "reward": -35.035935179933475
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 3,
+      "episode_timesteps": 999,
+      "reward": -32.69248547445046
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 4,
+      "episode_timesteps": 999,
+      "reward": -32.46458540281787
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 5,
+      "episode_timesteps": 999,
+      "reward": -35.142317658089446
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 6,
+      "episode_timesteps": 999,
+      "reward": -32.23419828977042
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 7,
+      "episode_timesteps": 999,
+      "reward": -34.05928261725336
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 8,
+      "episode_timesteps": 999,
+      "reward": -33.79233718941918
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 9,
+      "episode_timesteps": 999,
+      "reward": -33.27828496924111
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 10,
+      "episode_timesteps": 999,
+      "reward": -32.69640343999208
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 11,
+      "episode_timesteps": 999,
+      "reward": -32.58033911259829
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 12,
+      "episode_timesteps": 999,
+      "reward": -33.954918768445815
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 13,
+      "episode_timesteps": 999,
+      "reward": -33.18237506756854
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 14,
+      "episode_timesteps": 999,
+      "reward": -33.18587283483574
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 15,
+      "episode_timesteps": 999,
+      "reward": -32.309680801213766
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 16,
+      "episode_timesteps": 999,
+      "reward": -32.80708202909924
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 17,
+      "episode_timesteps": 999,
+      "reward": -31.835682021324672
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 18,
+      "episode_timesteps": 999,
+      "reward": -33.13868672204721
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 19,
+      "episode_timesteps": 999,
+      "reward": -32.5880528178725
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 20,
+      "episode_timesteps": 999,
+      "reward": -32.11804281126179
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 21,
+      "episode_timesteps": 999,
+      "reward": -32.29285087631751
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 22,
+      "episode_timesteps": 999,
+      "reward": -32.75561668073341
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 23,
+      "episode_timesteps": 999,
+      "reward": -32.74475701701194
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 24,
+      "episode_timesteps": 999,
+      "reward": -31.752252714677386
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 25,
+      "episode_timesteps": 999,
+      "reward": -33.9518152914833
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 26,
+      "episode_timesteps": 999,
+      "reward": -24.07283039963774
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 27,
+      "episode_timesteps": 999,
+      "reward": -21.745202749134954
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 28,
+      "episode_timesteps": 999,
+      "reward": -22.607909122156364
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 29,
+      "episode_timesteps": 999,
+      "reward": -23.528086391570145
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 30,
+      "episode_timesteps": 999,
+      "reward": -22.927577367260135
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 31,
+      "episode_timesteps": 999,
+      "reward": -22.806358628919906
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 32,
+      "episode_timesteps": 999,
+      "reward": -22.55013731989788
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 33,
+      "episode_timesteps": 999,
+      "reward": -23.046121582499634
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 34,
+      "episode_timesteps": 999,
+      "reward": -23.08710009751407
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 35,
+      "episode_timesteps": 999,
+      "reward": -22.564469453284527
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 36,
+      "episode_timesteps": 999,
+      "reward": -24.267988900354677
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 37,
+      "episode_timesteps": 999,
+      "reward": -22.7029412638111
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 38,
+      "episode_timesteps": 999,
+      "reward": -22.97864373915812
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 39,
+      "episode_timesteps": 999,
+      "reward": -23.130578381722795
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 40,
+      "episode_timesteps": 999,
+      "reward": -21.859201619657238
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 41,
+      "episode_timesteps": 999,
+      "reward": -24.44601956421774
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 42,
+      "episode_timesteps": 999,
+      "reward": -23.866833156139798
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 43,
+      "episode_timesteps": 999,
+      "reward": -22.7665900011494
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 44,
+      "episode_timesteps": 999,
+      "reward": -23.247190897491937
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 45,
+      "episode_timesteps": 999,
+      "reward": -22.14446731711306
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 46,
+      "episode_timesteps": 999,
+      "reward": -23.802127062218535
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 47,
+      "episode_timesteps": 999,
+      "reward": -21.342612496752185
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 48,
+      "episode_timesteps": 999,
+      "reward": -23.42572715034941
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 49,
+      "episode_timesteps": 999,
+      "reward": -21.032394425258772
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 50,
+      "episode_timesteps": 999,
+      "reward": -23.411462058721924
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 51,
+      "episode_timesteps": 999,
+      "reward": -23.415074383662542
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 52,
+      "episode_timesteps": 999,
+      "reward": -23.4063158521863
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 53,
+      "episode_timesteps": 999,
+      "reward": -23.378603913210306
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 54,
+      "episode_timesteps": 999,
+      "reward": -22.557994407139045
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 55,
+      "episode_timesteps": 999,
+      "reward": -23.525912476401686
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 56,
+      "episode_timesteps": 999,
+      "reward": -24.21818163314409
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 57,
+      "episode_timesteps": 999,
+      "reward": -22.097657125188015
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 58,
+      "episode_timesteps": 999,
+      "reward": -22.777940931543757
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 59,
+      "episode_timesteps": 999,
+      "reward": -23.108986607624
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 60,
+      "episode_timesteps": 999,
+      "reward": -23.103119583904405
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 61,
+      "episode_timesteps": 999,
+      "reward": -21.85705985707284
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 62,
+      "episode_timesteps": 999,
+      "reward": -23.094617063762957
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 63,
+      "episode_timesteps": 999,
+      "reward": -23.816704916547994
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 64,
+      "episode_timesteps": 999,
+      "reward": -22.46153026418364
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 65,
+      "episode_timesteps": 999,
+      "reward": -23.830169053930966
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 66,
+      "episode_timesteps": 999,
+      "reward": -23.225123144840897
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 67,
+      "episode_timesteps": 999,
+      "reward": -23.926392093553105
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 68,
+      "episode_timesteps": 999,
+      "reward": -23.192647966013364
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 69,
+      "episode_timesteps": 999,
+      "reward": -24.12065136633062
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 70,
+      "episode_timesteps": 999,
+      "reward": -20.845396483907876
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 71,
+      "episode_timesteps": 999,
+      "reward": -23.13351396692544
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 72,
+      "episode_timesteps": 999,
+      "reward": -21.641473878076255
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 73,
+      "episode_timesteps": 999,
+      "reward": -22.30576170905467
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 74,
+      "episode_timesteps": 999,
+      "reward": -22.50634197903315
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 75,
+      "episode_timesteps": 999,
+      "reward": -22.646863392057096
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 76,
+      "episode_timesteps": 999,
+      "reward": -23.666805140182458
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 77,
+      "episode_timesteps": 999,
+      "reward": -23.966232922551814
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 78,
+      "episode_timesteps": 999,
+      "reward": -23.503938359269185
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 79,
+      "episode_timesteps": 999,
+      "reward": -21.849167076973167
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 80,
+      "episode_timesteps": 999,
+      "reward": -23.030228348911397
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 81,
+      "episode_timesteps": 999,
+      "reward": -23.934266019927083
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 82,
+      "episode_timesteps": 999,
+      "reward": -22.2144505117592
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 83,
+      "episode_timesteps": 999,
+      "reward": -23.05865797632934
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 84,
+      "episode_timesteps": 999,
+      "reward": -24.704107725366043
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 85,
+      "episode_timesteps": 999,
+      "reward": -22.553561565477008
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 86,
+      "episode_timesteps": 999,
+      "reward": -23.364528092590614
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 87,
+      "episode_timesteps": 999,
+      "reward": -22.85671280000113
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 88,
+      "episode_timesteps": 999,
+      "reward": -22.642430593385434
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 89,
+      "episode_timesteps": 999,
+      "reward": -23.56580195570839
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 90,
+      "episode_timesteps": 999,
+      "reward": -24.139459943557238
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 91,
+      "episode_timesteps": 999,
+      "reward": -23.680086953090726
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 92,
+      "episode_timesteps": 999,
+      "reward": -23.098402913871947
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 93,
+      "episode_timesteps": 999,
+      "reward": -22.93103067542102
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 94,
+      "episode_timesteps": 999,
+      "reward": -22.39974543835445
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 95,
+      "episode_timesteps": 999,
+      "reward": -22.021975745638976
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 96,
+      "episode_timesteps": 999,
+      "reward": -21.419302596528507
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 97,
+      "episode_timesteps": 999,
+      "reward": -24.186620573186335
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 98,
+      "episode_timesteps": 999,
+      "reward": -22.476368757450143
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 99,
+      "episode_timesteps": 999,
+      "reward": -23.453534146437303
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 100,
+      "episode_timesteps": 999,
+      "reward": -23.143286584839103
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 101,
+      "episode_timesteps": 999,
+      "reward": -22.87407953227489
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 102,
+      "episode_timesteps": 999,
+      "reward": -22.367992939477627
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 103,
+      "episode_timesteps": 999,
+      "reward": -24.34898574433347
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 104,
+      "episode_timesteps": 999,
+      "reward": -22.177735366874007
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 105,
+      "episode_timesteps": 999,
+      "reward": -23.4171330367082
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 106,
+      "episode_timesteps": 999,
+      "reward": -24.11409761627039
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 107,
+      "episode_timesteps": 999,
+      "reward": -23.816087258641407
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 108,
+      "episode_timesteps": 999,
+      "reward": -23.018339902417683
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 109,
+      "episode_timesteps": 999,
+      "reward": -23.980769551015655
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 110,
+      "episode_timesteps": 999,
+      "reward": -21.563384610510802
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 111,
+      "episode_timesteps": 999,
+      "reward": -23.20759166708288
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 112,
+      "episode_timesteps": 999,
+      "reward": -21.60214364119592
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 113,
+      "episode_timesteps": 999,
+      "reward": -21.686229120508074
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 114,
+      "episode_timesteps": 999,
+      "reward": -21.836011185078732
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 115,
+      "episode_timesteps": 999,
+      "reward": -22.67371308649787
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 116,
+      "episode_timesteps": 999,
+      "reward": -21.989490278145674
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 117,
+      "episode_timesteps": 999,
+      "reward": -22.93927953127628
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 118,
+      "episode_timesteps": 999,
+      "reward": -23.354585574633845
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 119,
+      "episode_timesteps": 999,
+      "reward": -22.899623075664678
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 120,
+      "episode_timesteps": 999,
+      "reward": -23.06478697870206
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 121,
+      "episode_timesteps": 999,
+      "reward": -23.024910018607887
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 122,
+      "episode_timesteps": 999,
+      "reward": -24.370225615882724
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 123,
+      "episode_timesteps": 999,
+      "reward": -22.438328571523908
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 124,
+      "episode_timesteps": 999,
+      "reward": -22.08079654411923
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 125,
+      "episode_timesteps": 999,
+      "reward": -22.79223370448013
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 126,
+      "episode_timesteps": 999,
+      "reward": -23.432954053019937
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 127,
+      "episode_timesteps": 999,
+      "reward": -23.52152615837247
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 128,
+      "episode_timesteps": 999,
+      "reward": -23.077479896238074
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 129,
+      "episode_timesteps": 999,
+      "reward": -23.065606815102786
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 130,
+      "episode_timesteps": 999,
+      "reward": -24.141487549013615
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 131,
+      "episode_timesteps": 999,
+      "reward": -24.898326230242965
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 132,
+      "episode_timesteps": 999,
+      "reward": -24.00051445026005
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 133,
+      "episode_timesteps": 999,
+      "reward": -23.628310231316135
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 134,
+      "episode_timesteps": 999,
+      "reward": -23.084098130051082
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 135,
+      "episode_timesteps": 999,
+      "reward": -21.660112102819287
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 136,
+      "episode_timesteps": 999,
+      "reward": -23.889076073961977
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 137,
+      "episode_timesteps": 999,
+      "reward": -24.272854905282998
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 138,
+      "episode_timesteps": 999,
+      "reward": -23.736842483118938
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 139,
+      "episode_timesteps": 999,
+      "reward": -24.367722588060197
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 140,
+      "episode_timesteps": 999,
+      "reward": -23.96283638602465
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 141,
+      "episode_timesteps": 999,
+      "reward": -23.370076537246355
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 142,
+      "episode_timesteps": 999,
+      "reward": -24.07151099313888
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 143,
+      "episode_timesteps": 999,
+      "reward": -23.60064704766743
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 144,
+      "episode_timesteps": 999,
+      "reward": -22.55362060575871
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 145,
+      "episode_timesteps": 999,
+      "reward": -24.052447052956968
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 146,
+      "episode_timesteps": 999,
+      "reward": -22.827061863596438
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 147,
+      "episode_timesteps": 999,
+      "reward": -22.277679903505035
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 148,
+      "episode_timesteps": 999,
+      "reward": -22.142603177420906
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 149,
+      "episode_timesteps": 999,
+      "reward": -23.59151443221252
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 150,
+      "episode_timesteps": 999,
+      "reward": -22.336997639809233
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 151,
+      "episode_timesteps": 999,
+      "reward": -22.494062378589646
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 152,
+      "episode_timesteps": 999,
+      "reward": -22.956262019932183
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 153,
+      "episode_timesteps": 999,
+      "reward": -21.279814551189375
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 154,
+      "episode_timesteps": 999,
+      "reward": -23.967250122055024
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 155,
+      "episode_timesteps": 999,
+      "reward": -21.815801503806156
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 156,
+      "episode_timesteps": 999,
+      "reward": -21.77420979454219
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 157,
+      "episode_timesteps": 999,
+      "reward": -24.24558989237154
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 158,
+      "episode_timesteps": 999,
+      "reward": -24.085280492219713
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 159,
+      "episode_timesteps": 999,
+      "reward": -22.40349437859503
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 160,
+      "episode_timesteps": 999,
+      "reward": -23.337997938034302
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 161,
+      "episode_timesteps": 999,
+      "reward": -22.52838252452286
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 162,
+      "episode_timesteps": 999,
+      "reward": -23.11397397574275
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 163,
+      "episode_timesteps": 999,
+      "reward": -22.97767378017304
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 164,
+      "episode_timesteps": 999,
+      "reward": -23.74882677856995
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 165,
+      "episode_timesteps": 999,
+      "reward": -23.03176732339196
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 166,
+      "episode_timesteps": 999,
+      "reward": -23.35248285598852
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 167,
+      "episode_timesteps": 999,
+      "reward": -23.120932294232606
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 168,
+      "episode_timesteps": 999,
+      "reward": -22.93571725556881
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 169,
+      "episode_timesteps": 999,
+      "reward": -23.765825382489545
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 170,
+      "episode_timesteps": 999,
+      "reward": -22.501785860347734
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 171,
+      "episode_timesteps": 999,
+      "reward": -23.373898989627808
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 172,
+      "episode_timesteps": 999,
+      "reward": -23.61892260444972
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 173,
+      "episode_timesteps": 999,
+      "reward": -23.4395744162327
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 174,
+      "episode_timesteps": 999,
+      "reward": -23.557264166409496
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 175,
+      "episode_timesteps": 999,
+      "reward": -22.349512046624792
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 176,
+      "episode_timesteps": 999,
+      "reward": -22.483619411787352
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 177,
+      "episode_timesteps": 999,
+      "reward": -23.913658978219313
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 178,
+      "episode_timesteps": 999,
+      "reward": -24.310958348790262
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 179,
+      "episode_timesteps": 999,
+      "reward": -24.23922494447764
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 180,
+      "episode_timesteps": 999,
+      "reward": -21.808330995909973
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 181,
+      "episode_timesteps": 999,
+      "reward": -23.079266247571375
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 182,
+      "episode_timesteps": 999,
+      "reward": -22.835895040461708
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 183,
+      "episode_timesteps": 999,
+      "reward": -22.676967140538075
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 184,
+      "episode_timesteps": 999,
+      "reward": -24.00310360302611
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 185,
+      "episode_timesteps": 999,
+      "reward": -23.141423243517362
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 186,
+      "episode_timesteps": 999,
+      "reward": -23.397895517677814
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 187,
+      "episode_timesteps": 999,
+      "reward": -23.700520705919725
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 188,
+      "episode_timesteps": 999,
+      "reward": -22.46492216457974
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 189,
+      "episode_timesteps": 999,
+      "reward": -23.385582836149982
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 190,
+      "episode_timesteps": 999,
+      "reward": -22.622486662385064
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 191,
+      "episode_timesteps": 999,
+      "reward": -22.871806029716506
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 192,
+      "episode_timesteps": 999,
+      "reward": -22.667740918628613
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 193,
+      "episode_timesteps": 999,
+      "reward": -23.23207349917122
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 194,
+      "episode_timesteps": 999,
+      "reward": -23.426298525071598
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 195,
+      "episode_timesteps": 999,
+      "reward": -20.81776731917808
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 196,
+      "episode_timesteps": 999,
+      "reward": -24.747856301696075
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 197,
+      "episode_timesteps": 999,
+      "reward": -22.82612837789558
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 198,
+      "episode_timesteps": 999,
+      "reward": -22.788904555166777
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 199,
+      "episode_timesteps": 999,
+      "reward": -24.466349103785795
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 200,
+      "episode_timesteps": 999,
+      "reward": -22.50989806971785
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 201,
+      "episode_timesteps": 999,
+      "reward": -21.62148231634615
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 202,
+      "episode_timesteps": 999,
+      "reward": -23.37340900823612
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 203,
+      "episode_timesteps": 999,
+      "reward": -22.15924759765224
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 204,
+      "episode_timesteps": 999,
+      "reward": -23.253785579930923
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 205,
+      "episode_timesteps": 999,
+      "reward": -23.082722497504903
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 206,
+      "episode_timesteps": 999,
+      "reward": -22.14593179085039
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 207,
+      "episode_timesteps": 999,
+      "reward": -22.395940767464133
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 208,
+      "episode_timesteps": 999,
+      "reward": -24.30221276977459
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 209,
+      "episode_timesteps": 999,
+      "reward": -21.444721679867126
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 210,
+      "episode_timesteps": 999,
+      "reward": -24.06750782878132
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 211,
+      "episode_timesteps": 999,
+      "reward": -22.813464169960795
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 212,
+      "episode_timesteps": 999,
+      "reward": -23.368113130948924
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 213,
+      "episode_timesteps": 999,
+      "reward": -25.190473298502983
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 214,
+      "episode_timesteps": 999,
+      "reward": -22.77249395760924
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 215,
+      "episode_timesteps": 999,
+      "reward": -22.919367068682323
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 216,
+      "episode_timesteps": 999,
+      "reward": -21.23052699580654
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 217,
+      "episode_timesteps": 999,
+      "reward": -23.030477792066158
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 218,
+      "episode_timesteps": 999,
+      "reward": -23.24329482200005
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 219,
+      "episode_timesteps": 999,
+      "reward": -23.84213310086302
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 220,
+      "episode_timesteps": 999,
+      "reward": -21.348054790538875
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 221,
+      "episode_timesteps": 999,
+      "reward": -22.172067754832707
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 222,
+      "episode_timesteps": 999,
+      "reward": -22.829226755324484
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 223,
+      "episode_timesteps": 999,
+      "reward": -21.431394867742966
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 224,
+      "episode_timesteps": 999,
+      "reward": -24.758175388787926
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 225,
+      "episode_timesteps": 999,
+      "reward": -23.108456971316627
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 226,
+      "episode_timesteps": 999,
+      "reward": -22.805506037343562
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 227,
+      "episode_timesteps": 999,
+      "reward": -22.28804057672363
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 228,
+      "episode_timesteps": 999,
+      "reward": -24.264999382452906
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 229,
+      "episode_timesteps": 999,
+      "reward": -22.69449362487262
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 230,
+      "episode_timesteps": 999,
+      "reward": -24.200709904063153
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 231,
+      "episode_timesteps": 999,
+      "reward": -23.8957828961502
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 232,
+      "episode_timesteps": 999,
+      "reward": -24.622936612200537
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 233,
+      "episode_timesteps": 999,
+      "reward": -22.919041824990323
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 234,
+      "episode_timesteps": 999,
+      "reward": -23.333869873986384
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 235,
+      "episode_timesteps": 999,
+      "reward": -21.675112670748153
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 236,
+      "episode_timesteps": 999,
+      "reward": -24.526644393472143
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 237,
+      "episode_timesteps": 999,
+      "reward": -21.38237740604231
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 238,
+      "episode_timesteps": 999,
+      "reward": -23.081733597020857
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 239,
+      "episode_timesteps": 999,
+      "reward": -23.749662188202
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 240,
+      "episode_timesteps": 999,
+      "reward": -23.07701585550173
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 241,
+      "episode_timesteps": 999,
+      "reward": -24.527784297068187
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 242,
+      "episode_timesteps": 999,
+      "reward": -24.067774157615887
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 243,
+      "episode_timesteps": 999,
+      "reward": -21.67194494706418
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 244,
+      "episode_timesteps": 999,
+      "reward": -23.914534016528723
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 245,
+      "episode_timesteps": 999,
+      "reward": -23.762334032541848
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 246,
+      "episode_timesteps": 999,
+      "reward": -21.95248340727595
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 247,
+      "episode_timesteps": 999,
+      "reward": -23.305062784036423
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 248,
+      "episode_timesteps": 999,
+      "reward": -22.975005758538828
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 249,
+      "episode_timesteps": 999,
+      "reward": -21.97103908649693
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 250,
+      "episode_timesteps": 999,
+      "reward": -23.4232724960692
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 251,
+      "episode_timesteps": 999,
+      "reward": -22.02390278399547
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 252,
+      "episode_timesteps": 999,
+      "reward": -23.441461768076945
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 253,
+      "episode_timesteps": 999,
+      "reward": -23.435047014407658
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 254,
+      "episode_timesteps": 999,
+      "reward": -21.15827621697332
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 255,
+      "episode_timesteps": 999,
+      "reward": -22.077721928952084
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 256,
+      "episode_timesteps": 999,
+      "reward": -23.0021210024102
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 257,
+      "episode_timesteps": 999,
+      "reward": -22.17142840280626
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 258,
+      "episode_timesteps": 999,
+      "reward": -21.889470099810318
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 259,
+      "episode_timesteps": 999,
+      "reward": -23.14379425700795
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 260,
+      "episode_timesteps": 999,
+      "reward": -23.701167404770423
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 261,
+      "episode_timesteps": 999,
+      "reward": -23.509485418260173
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 262,
+      "episode_timesteps": 999,
+      "reward": -25.303411219035194
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 263,
+      "episode_timesteps": 999,
+      "reward": -23.774654615530817
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 264,
+      "episode_timesteps": 999,
+      "reward": -22.792576300496368
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 265,
+      "episode_timesteps": 999,
+      "reward": -21.873656372061124
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 266,
+      "episode_timesteps": 999,
+      "reward": -23.324466338550344
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 267,
+      "episode_timesteps": 999,
+      "reward": -24.35135819014639
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 268,
+      "episode_timesteps": 999,
+      "reward": -23.18741291642049
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 269,
+      "episode_timesteps": 999,
+      "reward": -22.21092031280893
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 270,
+      "episode_timesteps": 999,
+      "reward": -22.203337229530543
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 271,
+      "episode_timesteps": 999,
+      "reward": -23.519760395601896
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 272,
+      "episode_timesteps": 999,
+      "reward": -23.05368903535913
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 273,
+      "episode_timesteps": 999,
+      "reward": -25.019995707726903
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 274,
+      "episode_timesteps": 999,
+      "reward": -22.98998699664221
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 275,
+      "episode_timesteps": 999,
+      "reward": -25.93175185381975
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 276,
+      "episode_timesteps": 999,
+      "reward": -22.12126311636767
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 277,
+      "episode_timesteps": 999,
+      "reward": -22.66654584746906
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 278,
+      "episode_timesteps": 999,
+      "reward": -23.116935243892815
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 279,
+      "episode_timesteps": 999,
+      "reward": -22.221849194585918
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 280,
+      "episode_timesteps": 999,
+      "reward": -22.079713774872882
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 281,
+      "episode_timesteps": 999,
+      "reward": -24.158036814182676
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 282,
+      "episode_timesteps": 999,
+      "reward": -22.13230908544453
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 283,
+      "episode_timesteps": 999,
+      "reward": -24.0532436836086
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 284,
+      "episode_timesteps": 999,
+      "reward": -23.70893510963728
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 285,
+      "episode_timesteps": 999,
+      "reward": -23.657478839909885
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 286,
+      "episode_timesteps": 999,
+      "reward": -21.47658741984465
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 287,
+      "episode_timesteps": 999,
+      "reward": -22.274632291558593
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 288,
+      "episode_timesteps": 999,
+      "reward": -22.550432191182118
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 289,
+      "episode_timesteps": 999,
+      "reward": -22.770233579530416
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 290,
+      "episode_timesteps": 999,
+      "reward": -21.45952256508943
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 291,
+      "episode_timesteps": 999,
+      "reward": -21.694819404386536
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 292,
+      "episode_timesteps": 999,
+      "reward": -22.883832627842125
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 293,
+      "episode_timesteps": 999,
+      "reward": -22.345434188068293
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 294,
+      "episode_timesteps": 999,
+      "reward": -23.202940300797184
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 295,
+      "episode_timesteps": 999,
+      "reward": -25.06360825964715
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 296,
+      "episode_timesteps": 999,
+      "reward": -23.886072417059854
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 297,
+      "episode_timesteps": 999,
+      "reward": -23.730740621912116
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 298,
+      "episode_timesteps": 999,
+      "reward": -21.25186404807417
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 299,
+      "episode_timesteps": 999,
+      "reward": -22.96229894305135
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 300,
+      "episode_timesteps": 999,
+      "reward": -21.820006688157875
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 301,
+      "episode_timesteps": 999,
+      "reward": -21.919270052071408
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 302,
+      "episode_timesteps": 999,
+      "reward": -24.417964762428078
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 303,
+      "episode_timesteps": 999,
+      "reward": -24.583942259653952
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 304,
+      "episode_timesteps": 999,
+      "reward": -22.72850319368503
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 305,
+      "episode_timesteps": 999,
+      "reward": -23.56517614683186
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 306,
+      "episode_timesteps": 999,
+      "reward": -23.530225576787284
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 307,
+      "episode_timesteps": 999,
+      "reward": -21.027319789550283
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 308,
+      "episode_timesteps": 999,
+      "reward": -21.670632036577476
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 309,
+      "episode_timesteps": 999,
+      "reward": -24.28795985155352
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 310,
+      "episode_timesteps": 999,
+      "reward": -22.479159873495863
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 311,
+      "episode_timesteps": 999,
+      "reward": -23.63370649608239
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 312,
+      "episode_timesteps": 999,
+      "reward": -25.02057306248462
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 313,
+      "episode_timesteps": 999,
+      "reward": -21.708783042761233
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 314,
+      "episode_timesteps": 999,
+      "reward": -22.286522916007506
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 315,
+      "episode_timesteps": 999,
+      "reward": -24.319478317659588
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 316,
+      "episode_timesteps": 999,
+      "reward": -23.36850155086259
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 317,
+      "episode_timesteps": 999,
+      "reward": -23.935206192290245
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 318,
+      "episode_timesteps": 999,
+      "reward": -22.71910304384472
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 319,
+      "episode_timesteps": 999,
+      "reward": -21.111606473227084
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 320,
+      "episode_timesteps": 999,
+      "reward": -23.45768520442984
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 321,
+      "episode_timesteps": 999,
+      "reward": -24.10047276940641
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 322,
+      "episode_timesteps": 999,
+      "reward": -22.190326547765302
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 323,
+      "episode_timesteps": 999,
+      "reward": -22.74535246788618
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 324,
+      "episode_timesteps": 999,
+      "reward": -21.517217613495227
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 325,
+      "episode_timesteps": 999,
+      "reward": -22.37975407003435
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 326,
+      "episode_timesteps": 999,
+      "reward": -23.573583632921007
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 327,
+      "episode_timesteps": 999,
+      "reward": -24.395907467937526
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 328,
+      "episode_timesteps": 999,
+      "reward": -24.302491590127147
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 329,
+      "episode_timesteps": 999,
+      "reward": -22.238553905237683
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 330,
+      "episode_timesteps": 999,
+      "reward": -22.929774661097767
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 331,
+      "episode_timesteps": 999,
+      "reward": -21.73477581196894
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 332,
+      "episode_timesteps": 999,
+      "reward": -23.576858258124386
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 333,
+      "episode_timesteps": 999,
+      "reward": -22.062907597509536
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 334,
+      "episode_timesteps": 999,
+      "reward": -24.07640920468628
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 335,
+      "episode_timesteps": 999,
+      "reward": -23.32692475522178
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 336,
+      "episode_timesteps": 999,
+      "reward": -22.390211742127967
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 337,
+      "episode_timesteps": 999,
+      "reward": -23.608259159940165
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 338,
+      "episode_timesteps": 999,
+      "reward": -21.679702276265832
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 339,
+      "episode_timesteps": 999,
+      "reward": -23.480102050170846
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 340,
+      "episode_timesteps": 999,
+      "reward": -23.140772986501574
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 341,
+      "episode_timesteps": 999,
+      "reward": -23.96642536346074
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 342,
+      "episode_timesteps": 999,
+      "reward": -22.594793288454742
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 343,
+      "episode_timesteps": 999,
+      "reward": -24.415164840684653
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 344,
+      "episode_timesteps": 999,
+      "reward": -23.060689003802086
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 345,
+      "episode_timesteps": 999,
+      "reward": -22.560921373130466
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 346,
+      "episode_timesteps": 999,
+      "reward": -22.83945522570132
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 347,
+      "episode_timesteps": 999,
+      "reward": -23.218751246884327
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 348,
+      "episode_timesteps": 999,
+      "reward": -23.464046842807807
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 349,
+      "episode_timesteps": 999,
+      "reward": -23.745926259584426
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 350,
+      "episode_timesteps": 999,
+      "reward": -21.688843516207122
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 351,
+      "episode_timesteps": 999,
+      "reward": -23.816969486140582
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 352,
+      "episode_timesteps": 999,
+      "reward": -25.78459812017938
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 353,
+      "episode_timesteps": 999,
+      "reward": -23.155050266452275
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 354,
+      "episode_timesteps": 999,
+      "reward": -23.317628910918824
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 355,
+      "episode_timesteps": 999,
+      "reward": -21.937362629047747
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 356,
+      "episode_timesteps": 999,
+      "reward": -23.008912973268405
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 357,
+      "episode_timesteps": 999,
+      "reward": -21.70041516167712
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 358,
+      "episode_timesteps": 999,
+      "reward": -21.800335508048164
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 359,
+      "episode_timesteps": 999,
+      "reward": -23.96901338808709
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 360,
+      "episode_timesteps": 999,
+      "reward": -22.137693580602534
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 361,
+      "episode_timesteps": 999,
+      "reward": -21.48302502312148
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 362,
+      "episode_timesteps": 999,
+      "reward": -22.618622351269384
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 363,
+      "episode_timesteps": 999,
+      "reward": -24.732939701337635
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 364,
+      "episode_timesteps": 999,
+      "reward": -22.84974624161538
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 365,
+      "episode_timesteps": 999,
+      "reward": -24.6595552319711
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 366,
+      "episode_timesteps": 999,
+      "reward": -22.929155997070417
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 367,
+      "episode_timesteps": 999,
+      "reward": -22.375641159006054
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 368,
+      "episode_timesteps": 999,
+      "reward": -23.57844518501441
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 369,
+      "episode_timesteps": 999,
+      "reward": -21.612840973041347
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 370,
+      "episode_timesteps": 999,
+      "reward": -22.98395373054494
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 371,
+      "episode_timesteps": 999,
+      "reward": -23.022385496214408
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 372,
+      "episode_timesteps": 999,
+      "reward": -22.714948645574662
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 373,
+      "episode_timesteps": 999,
+      "reward": -23.792674074469897
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 374,
+      "episode_timesteps": 999,
+      "reward": -22.995590906317688
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 375,
+      "episode_timesteps": 999,
+      "reward": -23.979697140559107
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 376,
+      "episode_timesteps": 999,
+      "reward": -22.904001864782227
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 377,
+      "episode_timesteps": 999,
+      "reward": -22.86716339254371
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 378,
+      "episode_timesteps": 999,
+      "reward": -23.38655772740314
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 379,
+      "episode_timesteps": 999,
+      "reward": -22.777206310912618
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 380,
+      "episode_timesteps": 999,
+      "reward": -22.90660394892764
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 381,
+      "episode_timesteps": 999,
+      "reward": -24.340362231782883
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 382,
+      "episode_timesteps": 999,
+      "reward": -23.020796898619377
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 383,
+      "episode_timesteps": 999,
+      "reward": -22.730926658780394
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 384,
+      "episode_timesteps": 999,
+      "reward": -21.93452661623111
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 385,
+      "episode_timesteps": 999,
+      "reward": -22.138126282999767
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 386,
+      "episode_timesteps": 999,
+      "reward": -22.63369475003417
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 387,
+      "episode_timesteps": 999,
+      "reward": -22.45443235558025
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 388,
+      "episode_timesteps": 999,
+      "reward": -23.16470606542252
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 389,
+      "episode_timesteps": 999,
+      "reward": -23.560727009109115
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 390,
+      "episode_timesteps": 999,
+      "reward": -21.91602449158886
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 391,
+      "episode_timesteps": 999,
+      "reward": -22.135385688068634
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 392,
+      "episode_timesteps": 999,
+      "reward": -22.739603128741823
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 393,
+      "episode_timesteps": 999,
+      "reward": -22.718483691193512
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 394,
+      "episode_timesteps": 999,
+      "reward": -23.9129597436445
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 395,
+      "episode_timesteps": 999,
+      "reward": -22.496550731269874
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 396,
+      "episode_timesteps": 999,
+      "reward": -22.900159649183486
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 397,
+      "episode_timesteps": 999,
+      "reward": -25.161692445642963
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 398,
+      "episode_timesteps": 999,
+      "reward": -22.718750695930755
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 399,
+      "episode_timesteps": 999,
+      "reward": -21.845192287975568
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 400,
+      "episode_timesteps": 999,
+      "reward": -23.409524520286777
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 401,
+      "episode_timesteps": 999,
+      "reward": -23.0234557667785
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 402,
+      "episode_timesteps": 999,
+      "reward": -23.7194510970961
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 403,
+      "episode_timesteps": 999,
+      "reward": -23.10495827406627
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 404,
+      "episode_timesteps": 999,
+      "reward": -23.451863265882455
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 405,
+      "episode_timesteps": 999,
+      "reward": -23.05753092838511
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 406,
+      "episode_timesteps": 999,
+      "reward": -22.71848001217624
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 407,
+      "episode_timesteps": 999,
+      "reward": -21.832788739079778
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 408,
+      "episode_timesteps": 999,
+      "reward": -22.536596124768426
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 409,
+      "episode_timesteps": 999,
+      "reward": -23.866066790026274
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 410,
+      "episode_timesteps": 999,
+      "reward": -22.4125682718883
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 411,
+      "episode_timesteps": 999,
+      "reward": -23.3495442105594
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 412,
+      "episode_timesteps": 999,
+      "reward": -24.785177510350472
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 413,
+      "episode_timesteps": 999,
+      "reward": -23.831096021698215
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 414,
+      "episode_timesteps": 999,
+      "reward": -22.928202391726746
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 415,
+      "episode_timesteps": 999,
+      "reward": -25.2896943113398
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 416,
+      "episode_timesteps": 999,
+      "reward": -25.048600187889054
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 417,
+      "episode_timesteps": 999,
+      "reward": -23.354765225298234
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 418,
+      "episode_timesteps": 999,
+      "reward": -22.630158610143226
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 419,
+      "episode_timesteps": 999,
+      "reward": -24.79496794202426
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 420,
+      "episode_timesteps": 999,
+      "reward": -22.909176352848423
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 421,
+      "episode_timesteps": 999,
+      "reward": -24.49731182054931
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 422,
+      "episode_timesteps": 999,
+      "reward": -22.46349736797485
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 423,
+      "episode_timesteps": 999,
+      "reward": -22.85089149856038
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 424,
+      "episode_timesteps": 999,
+      "reward": -22.797846340287677
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 425,
+      "episode_timesteps": 999,
+      "reward": -21.913077477002236
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 426,
+      "episode_timesteps": 999,
+      "reward": -23.696620352620354
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 427,
+      "episode_timesteps": 999,
+      "reward": -23.09278651593964
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 428,
+      "episode_timesteps": 999,
+      "reward": -22.735688461837658
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 429,
+      "episode_timesteps": 999,
+      "reward": -23.255224150259515
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 430,
+      "episode_timesteps": 999,
+      "reward": -23.01625322855856
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 431,
+      "episode_timesteps": 999,
+      "reward": -22.18792683312579
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 432,
+      "episode_timesteps": 999,
+      "reward": -21.67342165636083
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 433,
+      "episode_timesteps": 999,
+      "reward": -23.51857107390326
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 434,
+      "episode_timesteps": 999,
+      "reward": -21.664735765222883
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 435,
+      "episode_timesteps": 999,
+      "reward": -23.359005050158707
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 436,
+      "episode_timesteps": 999,
+      "reward": -23.77215236056192
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 437,
+      "episode_timesteps": 999,
+      "reward": -22.651747421817056
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 438,
+      "episode_timesteps": 999,
+      "reward": -23.738352183856836
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 439,
+      "episode_timesteps": 999,
+      "reward": -23.14896951489679
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 440,
+      "episode_timesteps": 999,
+      "reward": -21.65452359400885
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 441,
+      "episode_timesteps": 999,
+      "reward": -23.795503855395044
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 442,
+      "episode_timesteps": 999,
+      "reward": -24.103110325568828
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 443,
+      "episode_timesteps": 999,
+      "reward": -23.764893821947204
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 444,
+      "episode_timesteps": 999,
+      "reward": -23.788615002706518
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 445,
+      "episode_timesteps": 999,
+      "reward": -22.060456448538417
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 446,
+      "episode_timesteps": 999,
+      "reward": -23.16551574954656
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 447,
+      "episode_timesteps": 999,
+      "reward": -22.041341214833047
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 448,
+      "episode_timesteps": 999,
+      "reward": -23.03270296615665
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 449,
+      "episode_timesteps": 999,
+      "reward": -24.24125000188781
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 450,
+      "episode_timesteps": 999,
+      "reward": -23.29172054603137
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 451,
+      "episode_timesteps": 999,
+      "reward": -23.463258547566106
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 452,
+      "episode_timesteps": 999,
+      "reward": -24.150832234089503
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 453,
+      "episode_timesteps": 999,
+      "reward": -22.359832071194663
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 454,
+      "episode_timesteps": 999,
+      "reward": -22.79629071400507
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 455,
+      "episode_timesteps": 999,
+      "reward": -21.29555426479017
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 456,
+      "episode_timesteps": 999,
+      "reward": -22.55595154105593
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 457,
+      "episode_timesteps": 999,
+      "reward": -20.419195805983552
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 458,
+      "episode_timesteps": 999,
+      "reward": -23.49316012472958
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 459,
+      "episode_timesteps": 999,
+      "reward": -21.713339934962026
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 460,
+      "episode_timesteps": 999,
+      "reward": -23.11099897502456
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 461,
+      "episode_timesteps": 999,
+      "reward": -24.793437896351698
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 462,
+      "episode_timesteps": 999,
+      "reward": -24.866921927164906
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 463,
+      "episode_timesteps": 999,
+      "reward": -23.04282389631458
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 464,
+      "episode_timesteps": 999,
+      "reward": -22.251412613526163
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 465,
+      "episode_timesteps": 999,
+      "reward": -23.099821983903613
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 466,
+      "episode_timesteps": 999,
+      "reward": -22.05789496954477
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 467,
+      "episode_timesteps": 999,
+      "reward": -21.742572667907787
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 468,
+      "episode_timesteps": 999,
+      "reward": -24.928641013820926
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 469,
+      "episode_timesteps": 999,
+      "reward": -22.64315298518903
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 470,
+      "episode_timesteps": 999,
+      "reward": -22.994565686689818
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 471,
+      "episode_timesteps": 999,
+      "reward": -23.23966498380182
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 472,
+      "episode_timesteps": 999,
+      "reward": -23.483069657895648
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 473,
+      "episode_timesteps": 999,
+      "reward": -21.93067702562711
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 474,
+      "episode_timesteps": 999,
+      "reward": -23.155061084640195
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 475,
+      "episode_timesteps": 999,
+      "reward": -22.536777470953282
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 476,
+      "episode_timesteps": 999,
+      "reward": -21.31269919502289
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 477,
+      "episode_timesteps": 999,
+      "reward": -22.67028168146586
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 478,
+      "episode_timesteps": 999,
+      "reward": -21.903518015488036
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 479,
+      "episode_timesteps": 999,
+      "reward": -22.50801187148497
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 480,
+      "episode_timesteps": 999,
+      "reward": -22.80536497539685
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 481,
+      "episode_timesteps": 999,
+      "reward": -22.924449283175953
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 482,
+      "episode_timesteps": 999,
+      "reward": -21.456740134156533
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 483,
+      "episode_timesteps": 999,
+      "reward": -22.571152054466378
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 484,
+      "episode_timesteps": 999,
+      "reward": -24.69025963897142
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 485,
+      "episode_timesteps": 999,
+      "reward": -23.842704995515664
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 486,
+      "episode_timesteps": 999,
+      "reward": -23.296846658870724
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 487,
+      "episode_timesteps": 999,
+      "reward": -24.084200557252984
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 488,
+      "episode_timesteps": 999,
+      "reward": -23.592505302208075
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 489,
+      "episode_timesteps": 999,
+      "reward": -23.838840307531985
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 490,
+      "episode_timesteps": 999,
+      "reward": -22.262335377353157
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 491,
+      "episode_timesteps": 999,
+      "reward": -24.051053432489176
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 492,
+      "episode_timesteps": 999,
+      "reward": -23.706495499579095
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 493,
+      "episode_timesteps": 999,
+      "reward": -23.103451203452263
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 494,
+      "episode_timesteps": 999,
+      "reward": -23.191432901169293
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 495,
+      "episode_timesteps": 999,
+      "reward": -22.57505234628357
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 496,
+      "episode_timesteps": 999,
+      "reward": -23.81919310537074
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 497,
+      "episode_timesteps": 999,
+      "reward": -24.019748102486023
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 498,
+      "episode_timesteps": 999,
+      "reward": -23.292246195429517
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 499,
+      "episode_timesteps": 999,
+      "reward": -22.166174855774276
+    },
+    {
+      "total_timesteps": 10000,
+      "episode_num": 500,
+      "episode_timesteps": 999,
+      "reward": -22.513971685125895
+    }
+  ],
+  "evaluations": []
+}

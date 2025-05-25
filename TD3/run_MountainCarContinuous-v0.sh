@@ -9,6 +9,11 @@
 
 
 SEED=${1:-0}
+EXPL_NOISE=${2:-0.1}
+POLICY_NOISE=${3:-0.2}
+NOISE_CLIP=${4:-0.5}
+TAU=${5:-0.005}
+BATCH_SIZE=${6:-256}
 
 # Activate your environment
 source /home/maillet/venvs/env_td3/bin/activate
@@ -17,4 +22,4 @@ source /home/maillet/venvs/env_td3/bin/activate
 cd /home/maillet/RL-project/TD3
 
 # Run your code
-python main.py --policy "TD3" --env MountainCarContinuous-v0 --seed "$SEED" --expl_noise 0.7 --max_timesteps 500000
+python main.py --policy "TD3" --env MountainCarContinuous-v0 --max_timesteps 500000 --seed "$SEED" --expl_noise "$EXPL_NOISE" --policy_noise "$POLICY_NOISE" --noise_clip "$NOISE_CLIP" --tau "$TAU" --batch_size "$BATCH_SIZE"
