@@ -175,4 +175,4 @@ if __name__ == "__main__":
 				policy.save(f"./models/{file_name}")
 
 	# Save the result to the output .json file
-	json_path = logger.save(f"/home/maillet/RL-project/TD3/JSON_FILES/{args.env}_{args.seed}.json")
+	json_path = logger.save(f"/home/maillet/RL-project/TD3/JSON_FILES/{args.env}_seed_{args.seed}__ExplorationNoise_{args.expl_noise}__PolicyNoise_{args.policy_noise}__NoiseClip_{args.noise_clip}__Tau_{args.tau}__BatchSize_{args.batch_size}__.json")
