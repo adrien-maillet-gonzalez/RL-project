@@ -22,4 +22,4 @@ source /home/maillet/venvs/env_td3/bin/activate
 cd /home/maillet/RL-project/TD3
 
 # Run your code
-python main.py --policy "TD3" --env Pendulum-v1 --max_timesteps 50000 --seed "$SEED" --expl_noise "$EXPL_NOISE" --policy_noise "$POLICY_NOISE" --noise_clip "$NOISE_CLIP" --tau "$TAU" --batch_size "$BATCH_SIZE"
+python main.py --policy "TD3" --env Pendulum-v1 --max_timesteps 60000 --seed "$SEED" --expl_noise "$EXPL_NOISE" --policy_noise "$POLICY_NOISE" --noise_clip "$NOISE_CLIP" --tau "$TAU" --batch_size "$BATCH_SIZE"
