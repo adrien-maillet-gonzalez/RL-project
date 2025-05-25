@@ -1,0 +1,1056 @@
+env_type: classic_control
+seed used: 2
+Logging to /tmp/2643211/openai-2025-05-20-20-34-37-346917
+Training ppo2 on classic_control:Pendulum-v0 with arguments 
+{'nsteps': 200, 'lr': 0.0003, 'network': 'mlp'}
+
+ eprewmean -1298.605706
+Evaluation for  1  episodes
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+Evaluation for  10  episodes
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+Evaluation for  20  episodes
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+Evaluation for  30  episodes
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+Evaluation for  40  episodes
+
+ eprewmean -880.592271
+
+ eprewmean -880.592271
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+Evaluation for  50  episodes
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+Evaluation for  60  episodes
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+Evaluation for  70  episodes
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+Evaluation for  80  episodes
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+Evaluation for  90  episodes
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+Evaluation for  100  episodes
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+Evaluation for  110  episodes
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+Evaluation for  120  episodes
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+Evaluation for  130  episodes
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+Evaluation for  140  episodes
+
+ eprewmean -837.322582
+
+ eprewmean -837.322582
+
+ eprewmean -840.112109
+
+ eprewmean -840.112109
+
+ eprewmean -840.112109
+
+ eprewmean -840.112109
+
+ eprewmean -840.112109
+
+ eprewmean -840.112109
+
+ eprewmean -840.112109
+
+ eprewmean -840.112109
+Evaluation for  150  episodes
+
+ eprewmean -840.112109
+
+ eprewmean -840.112109
+
+ eprewmean -840.112109
+
+ eprewmean -840.112109
+
+ eprewmean -840.112109
+
+ eprewmean -840.112109
+
+ eprewmean -840.112109
+
+ eprewmean -840.112109
+
+ eprewmean -840.112109
+
+ eprewmean -840.112109
+Evaluation for  160  episodes
+
+ eprewmean -840.112109
+
+ eprewmean -840.112109
+
+ eprewmean -840.112109
+
+ eprewmean -840.112109
+
+ eprewmean -840.112109
+
+ eprewmean -840.112109
+
+ eprewmean -840.112109
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+Evaluation for  170  episodes
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+Evaluation for  180  episodes
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+Evaluation for  190  episodes
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+Evaluation for  200  episodes
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+Evaluation for  210  episodes
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+Evaluation for  220  episodes
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+Evaluation for  230  episodes
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+Evaluation for  240  episodes
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+Evaluation for  250  episodes
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -866.560854
+
+ eprewmean -878.095112
+
+ eprewmean -878.095112
+
+ eprewmean -878.095112
+
+ eprewmean -878.095112
+
+ eprewmean -878.095112
+
+ eprewmean -878.095112
+
+ eprewmean -938.209422
+Evaluation for  260  episodes
+
+ eprewmean -938.209422
+
+ eprewmean -938.209422
+
+ eprewmean -938.209422
+
+ eprewmean -938.209422
+
+ eprewmean -938.209422
+
+ eprewmean -938.209422
+
+ eprewmean -938.209422
+
+ eprewmean -938.209422
+
+ eprewmean -938.209422
+
+ eprewmean -938.209422
+Evaluation for  270  episodes
+
+ eprewmean -938.209422
+
+ eprewmean -938.209422
+
+ eprewmean -938.209422
+
+ eprewmean -938.209422
+
+ eprewmean -938.209422
+
+ eprewmean -938.209422
+
+ eprewmean -938.209422
+
+ eprewmean -938.209422
+
+ eprewmean -938.209422
+
+ eprewmean -938.209422
+Evaluation for  280  episodes
+
+ eprewmean -938.209422
+
+ eprewmean -938.209422
+
+ eprewmean -938.209422
+
+ eprewmean -938.209422
+
+ eprewmean -938.209422
+
+ eprewmean -938.209422
+
+ eprewmean -938.209422
+
+ eprewmean -944.646093
+
+ eprewmean -944.646093
+
+ eprewmean -944.646093
+Evaluation for  290  episodes
+
+ eprewmean -944.646093
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+Evaluation for  300  episodes
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+Evaluation for  310  episodes
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+Evaluation for  320  episodes
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+Evaluation for  330  episodes
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+Evaluation for  340  episodes
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+Evaluation for  350  episodes
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+Evaluation for  360  episodes
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+Evaluation for  370  episodes
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -944.182851
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+Evaluation for  380  episodes
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+Evaluation for  390  episodes
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+Evaluation for  400  episodes
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+Evaluation for  410  episodes
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+Evaluation for  420  episodes
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+Evaluation for  430  episodes
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+Evaluation for  440  episodes
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+Evaluation for  450  episodes
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+Evaluation for  460  episodes
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+Evaluation for  470  episodes
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -943.388359
+
+ eprewmean -946.784325
+
+ eprewmean -946.784325
+Evaluation for  480  episodes
+
+ eprewmean -946.784325
+
+ eprewmean -946.784325
+
+ eprewmean -946.784325
+
+ eprewmean -946.784325
+
+ eprewmean -946.784325
+
+ eprewmean -946.784325
+
+ eprewmean -946.784325
+
+ eprewmean -946.784325
+
+ eprewmean -946.784325
+
+ eprewmean -946.784325
+Evaluation for  490  episodes
+
+ eprewmean -946.784325
+
+ eprewmean -946.784325
+
+ eprewmean -946.784325
+
+ eprewmean -946.784325
+
+ eprewmean -946.784325
+
+ eprewmean -990.893744
+
+ eprewmean -990.893744
+
+ eprewmean -990.893744
+
+ eprewmean -990.893744
+
+ eprewmean -990.893744
+Evaluation for  500  episodes
