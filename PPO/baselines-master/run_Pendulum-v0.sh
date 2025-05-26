@@ -11,7 +11,8 @@
 SEED=${1:-0}
 
 # Move to your project directory
-cd /home/maillet/RL-project/PPO/baselines-master
+# cd /home/maillet/RL-project/PPO/baselines-master
+cd C:/Users/franc/Documents/Cours/EPFL/M2/Reinforcement Learning/Final_project/RL-project/PPO/baselines-master
 
 # Run your code with the given seed
 # python -m baselines.run --alg=ppo2 --env=Pendulum-v0 --network=mlp --num_timesteps=1e7 --seed=$SEED
