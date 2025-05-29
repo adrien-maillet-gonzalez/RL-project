@@ -15,7 +15,7 @@ cd /home/maillet/RL-project/PPO/baselines-master
 
 # python -m baselines.run --alg=ppo2 --env=MountainCar-v0 --num_timesteps=1e6 --lr=2e-4 --nminibatches=64 --noptepochs=4  --seed=49 --save_path=models/MountainCar_ppo2_seed49
 # python -m baselines.run --alg=ppo2 --env=MountainCarContinuous-v0 --num_timesteps=10e6   --ent_coef=0.02 --lr=5e-2 --gamma=0.98 --nsteps=4096   --nminibatches=8 --vf_coef=0.7 --seed=42
-python -m baselines.run --alg=ppo2 --env=MountainCar-v0 --num_timesteps=1.5e6 --lr=2e-3 --nminibatches=64 --noptepochs=4  --seed=$SEED --save_path=models/MountainCar_ppo2_seed$SEED
+python -m baselines.run --alg=ppo2 --env=MountainCar-v0 --num_timesteps=1.5e6 --lr=2e-3 --nminibatches=64 --noptepochs=4  --seed=54 --save_path=models/MountainCar_ppo2_seed54
 
 # Load the trained model
 python -m baselines.run --alg=ppo2 --env=MountainCar-v0 --num_timesteps=0 --load_path=models/MountainCarDiscrete_ppo2_seed_$SEED --play
